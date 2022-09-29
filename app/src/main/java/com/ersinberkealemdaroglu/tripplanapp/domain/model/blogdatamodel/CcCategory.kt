@@ -1,5 +1,9 @@
 package com.ersinberkealemdaroglu.tripplanapp.domain.model.blogdatamodel
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class CcCategory(
     val count: Int,
     val description: String,
@@ -12,4 +16,4 @@ data class CcCategory(
     val term_group: Int,
     val term_id: Int,
     val term_taxonomy_id: Int
-)
+) : Parcelable

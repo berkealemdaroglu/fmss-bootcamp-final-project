@@ -13,6 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 class DetailFragment : Fragment() {
     private lateinit var detailBinding: FragmentDetailBinding
+    private val navArgs: DetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +26,13 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setBlogDataByArgs()
+    }
 
+    private fun setBlogDataByArgs(){
+        navArgs.let {
+            detailBinding.blogDataItem = it.blogData
+        }
     }
 
 }

@@ -4,12 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-            <variable
-                name="blogDataAdapter"
-                type="com.ersinberkealemdaroglu.tripplanapp.presentation.adapter.BlogDataAdapter" />
-        <variable
-            name="blogDataTopArticlesAdapter"
-            type="com.ersinberkealemdaroglu.tripplanapp.presentation.adapter.toparticlesadapter.BlogDataTopArticlesAdapter" />
+
     </data>
 
     <ScrollView
@@ -35,9 +30,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mightNeedRecyclerview"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_110sdp"
+            android:layout_height="@dimen/_116sdp"
             android:layout_marginTop="@dimen/_11sdp"
-            android:adapter="@{blogDataAdapter}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mightNeedThese"
@@ -86,7 +80,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="1dp"
-            android:adapter="@{blogDataTopArticlesAdapter}"
             app:layout_constraintBottom_toTopOf="@+id/ghostImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -104,6 +97,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topArticlesRecyclerview"
             tools:ignore="ContentDescription" />
+
+        <Button
+            android:id="@+id/seeAllButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:text="@string/sell_all"
+            android:background="@android:color/transparent"
+            android:textAllCaps="false"
+            android:fontFamily="@font/source_sans_pro_bold"
+            android:textSize="@dimen/_14ssp"
+            android:lineHeight="@dimen/_17sdp"
+            android:textFontWeight="600"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:textColor="@color/guide_see_all_text_color"
+            app:layout_constraintBottom_toBottomOf="@+id/mightNeedThese"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mightNeedThese"
+            tools:ignore="UnusedAttribute" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

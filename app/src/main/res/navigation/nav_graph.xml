@@ -15,7 +15,11 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.detail.DetailFragment"
-        android:label="DetailFragment" />
+        android:label="DetailFragment" >
+        <argument
+            android:name="blogData"
+            app:argType="com.ersinberkealemdaroglu.tripplanapp.domain.model.blogdatamodel.PostsPublish" />
+    </fragment>
     <fragment
         android:id="@+id/guideFragment"
         android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.guide.GuideFragment"
@@ -23,9 +27,20 @@
         <action
             android:id="@+id/action_guideFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_guideFragment_to_guideSeeAllFragment"
+            app:destination="@id/guideSeeAllFragment" />
     </fragment>
     <fragment
         android:id="@+id/tripScreenFragment"
         android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.trip.TripScreenFragment"
         android:label="TripScreenFragment" />
+    <fragment
+        android:id="@+id/guideSeeAllFragment"
+        android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.guide.GuideSeeAllFragment"
+        android:label="GuideSeeAllFragment" >
+        <action
+            android:id="@+id/action_guideSeeAllFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>

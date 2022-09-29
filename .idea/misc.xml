@@ -6,6 +6,7 @@
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/bookmark_icon_stroke.xml" value="0.313" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/bottom_menu_background_color.xml" value="0.37" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/bottom_menu_background_curved.xml" value="0.314" />
+        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.3625" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/guide_icon_click_listener.xml" value="0.281" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/home_car_icon.xml" value="0.5395" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/home_flight_icon.xml" value="0.5435" />
@@ -28,17 +29,20 @@
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/sss.xml" value="0.5435" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/trip_icon_click_listener.xml" value="0.281" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/font/font.xml" value="0.575" />
-        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout-v28/fragment_home.xml" value="0.3109375" />
+        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout-v28/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout-v28/guide_item_might_need_these.xml" value="0.3109375" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout-v28/top_pick_articles_item.xml" value="0.3109375" />
-        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/activity_main.xml" value="0.2839506172839506" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/fragment_detail.xml" value="0.18" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/fragment_guide.xml" value="0.1" />
+        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/fragment_guide_see_all.xml" value="0.1" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/fragment_home.xml" value="0.33" />
-        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/fragment_search.xml" value="0.33" />
+        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/fragment_trip_screen.xml" value="0.55" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/guide_item_might_need_these.xml" value="0.67" />
-        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/top_pick_articles_item.xml" value="0.33" />
+        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/guide_see_all_list_item.xml" value="0.5" />
+        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/might_need_these_see_all_list.xml" value="0.25" />
+        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/top_pick_articles_item.xml" value="0.2634920634920635" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/menu/bottom_menu.xml" value="0.5" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/menu/search.xml" value="0.55" />
       </map>

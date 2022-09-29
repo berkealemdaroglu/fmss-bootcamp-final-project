@@ -1,11 +1,12 @@
 package com.ersinberkealemdaroglu.tripplanapp.domain.model.blogdatamodel
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class PostsPublish(
     val ID: Int,
-    val ancestors: List<Any>,
     val cc_categories: List<CcCategory>,
-    val cc_tags: List<CcTag>,
     val comment_count: String,
     val comment_status: String,
     val filter: String,
@@ -32,4 +33,5 @@ data class PostsPublish(
     val post_type: String,
     val tags_input: List<String>,
     val to_ping: String,
-)
+    //val cc_tags: List<CcTag>,
+) : Parcelable

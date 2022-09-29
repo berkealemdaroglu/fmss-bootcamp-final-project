@@ -11,6 +11,7 @@
     <color name="home_title_color">#FCFCFD</color>
     <color name="search_title_color">#292C3D</color>
     <color name="search_bar_hint_color">#52577A</color>
-    <drawable name="guide_blue_color">#0048F0</drawable>
-    <drawable name="guide_top_pick_title_color">#181A25</drawable>
+    <color name="guide_blue_color">#0048F0</color>
+    <color name="guide_top_pick_title_color">#181A25</color>
+    <color name="guide_see_all_text_color">#FF4760</color>
 </resources>

@@ -32,6 +32,7 @@
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/cardViewImage"
                     android:layout_width="match_parent"
                     android:layout_height="194dp"
                     android:background="@android:color/transparent"
@@ -51,7 +52,7 @@
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:lineHeight="@dimen/_17sdp"
                     android:text="@{blogDataItem.tags_input[1]}"
-                    android:textColor="@drawable/guide_blue_color"
+                    android:textColor="@color/guide_blue_color"
                     android:textFontWeight="600"
                     android:textSize="@dimen/_14ssp"
                     tools:ignore="UnusedAttribute" />
@@ -66,7 +67,7 @@
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:lineHeight="@dimen/_22ssp"
                     android:text="@{blogDataItem.post_title}"
-                    android:textColor="@drawable/guide_top_pick_title_color"
+                    android:textColor="@color/guide_top_pick_title_color"
                     android:textFontWeight="700"
                     android:textSize="@dimen/_18ssp"
                     tools:ignore="UnusedAttribute" />
