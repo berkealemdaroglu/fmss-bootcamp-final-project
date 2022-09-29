@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/bookmark_icon_stroke.xml" value="0.313" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/bottom_menu_background_color.xml" value="0.37" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/bottom_menu_background_curved.xml" value="0.314" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/guide_icon_click_listener.xml" value="0.281" />
@@ -11,6 +12,7 @@
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/home_hotel_icon.xml" value="0.5395" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/home_icon_click_listener.xml" value="0.445" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/home_taxi_icon.xml" value="0.5385" />
+        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/ic_bookmark_icon.xml" value="0.314" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/ic_bottom_linear.xml" value="0.5285" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/ic_bottom_menu_item_selected.xml" value="0.189" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/drawable/ic_bottom_shadow_gradient.xml" value="0.5435" />
@@ -36,7 +38,7 @@
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/fragment_search.xml" value="0.33" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/fragment_trip_screen.xml" value="0.55" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/guide_item_might_need_these.xml" value="0.67" />
-        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/top_pick_articles_item.xml" value="0.27936507936507937" />
+        <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/layout/top_pick_articles_item.xml" value="0.33" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/menu/bottom_menu.xml" value="0.5" />
         <entry key="..\:/Users/ersin/FMSS/TripPlanApp/app/src/main/res/menu/search.xml" value="0.55" />
       </map>

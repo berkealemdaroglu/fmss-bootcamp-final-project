@@ -53,8 +53,7 @@
                     android:text="@{blogDataItem.tags_input[1]}"
                     android:textColor="@drawable/guide_blue_color"
                     android:textFontWeight="600"
-                    android:textSize="@dimen/_14ssp"
-                    tools:ignore="UnusedAttribute" />
+                    android:textSize="@dimen/_14ssp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -68,8 +67,7 @@
                     android:text="@{blogDataItem.post_title}"
                     android:textColor="@drawable/guide_top_pick_title_color"
                     android:textFontWeight="700"
-                    android:textSize="@dimen/_18ssp"
-                    tools:ignore="UnusedAttribute" />
+                    android:textSize="@dimen/_18ssp" />
 
             </LinearLayout>
 
@@ -82,7 +80,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_bookmark_icon"
                     app:layout_constraintEnd_toEndOf="parent"

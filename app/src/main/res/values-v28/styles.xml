@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="fragments_title_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/_12sdp</item>
+        <item name="android:layout_marginTop">@dimen/_45sdp</item>
+        <item name="android:fontFamily">@font/source_sans_pro_bold</item>
+        <item name="android:lineHeight">@dimen/_37sdp</item>
+        <item name="android:textColor">@color/search_title_color</item>
+        <item name="android:textFontWeight">700</item>
+        <item name="android:textSize">@dimen/_30ssp</item>
+    </style>
+</resources>
