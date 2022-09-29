@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bottom_menu_item_selected">#FF4760</color>
+    <color name="home_title_color">#FCFCFD</color>
+    <color name="search_title_color">#292C3D</color>
+    <color name="search_bar_hint_color">#52577A</color>
+    <drawable name="guide_blue_color">#0048F0</drawable>
+    <drawable name="guide_top_pick_title_color">#181A25</drawable>
 </resources>

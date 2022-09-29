@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">TripPlanApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="card_image">Card Image</string>
+    <string name="where_s_your_nnext_destination">Where’s your\nnext destination?</string>
+    <string name="flights">Flights</string>
+    <string name="hotels">Hotels</string>
+    <string name="cars">Cars</string>
+    <string name="taxi">Taxi</string>
+    <string name="search">Search</string>
+    <string name="guide">Guide</string>
+    <string name="might_need_these">Might need these</string>
+    <string name="top_pick_articles">Top-pick articles</string>
 </resources>
