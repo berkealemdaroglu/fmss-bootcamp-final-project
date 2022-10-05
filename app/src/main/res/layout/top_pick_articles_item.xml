@@ -6,7 +6,10 @@
     <data>
             <variable
                 name="blogDataItem"
-                type="com.ersinberkealemdaroglu.tripplanapp.domain.model.blogdatamodel.PostsPublish" />
+                type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
+        <variable
+            name="blogImages"
+            type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.Image" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -40,7 +43,6 @@
                     android:backgroundTintMode="add"
                     android:contentDescription="@string/card_image"
                     android:scaleType="centerCrop"
-                    android:downloadImageUrl="@{blogDataItem.post_excerpt}"
                     android:src="@drawable/top_pick_articles_test_image" />
 
                 <TextView
@@ -51,7 +53,7 @@
                     android:textAllCaps="true"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:lineHeight="@dimen/_17sdp"
-                    android:text="@{blogDataItem.tags_input[1]}"
+                    android:text="@{blogDataItem.category}"
                     android:textColor="@color/guide_blue_color"
                     android:textFontWeight="600"
                     android:textSize="@dimen/_14ssp"
@@ -66,7 +68,7 @@
                     android:layout_marginBottom="@dimen/_5sdp"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:lineHeight="@dimen/_22ssp"
-                    android:text="@{blogDataItem.post_title}"
+                    android:text="@{blogDataItem.title}"
                     android:textColor="@color/guide_top_pick_title_color"
                     android:textFontWeight="700"
                     android:textSize="@dimen/_18ssp"

@@ -11,14 +11,18 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.search.SearchFragment"
-        android:label="SearchFragment" />
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.detail.DetailFragment"
         android:label="DetailFragment" >
         <argument
             android:name="blogData"
-            app:argType="com.ersinberkealemdaroglu.tripplanapp.domain.model.blogdatamodel.PostsPublish" />
+            app:argType="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
     </fragment>
     <fragment
         android:id="@+id/guideFragment"

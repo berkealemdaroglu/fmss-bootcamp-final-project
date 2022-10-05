@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentTripScreenBinding
-import dagger.hilt.android.AndroidEntryPoint
 
 class TripScreenFragment : Fragment() {
     private lateinit var tripBinding: FragmentTripScreenBinding
@@ -17,8 +16,8 @@ class TripScreenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        tripBinding = DataBindingUtil.
-        inflate(inflater, R.layout.fragment_trip_screen, container, false)
+        tripBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_trip_screen, container, false)
         return tripBinding.root
     }
 

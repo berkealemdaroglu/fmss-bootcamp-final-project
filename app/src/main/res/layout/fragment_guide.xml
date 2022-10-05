@@ -9,115 +9,123 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".presentation.guide.GuideFragment">
-
-
-        <TextView
-            android:id="@+id/guideTitle"
-            style="@style/fragments_title_style"
-            android:text="@string/guide"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mightNeedRecyclerview"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_116sdp"
-            android:layout_marginTop="@dimen/_11sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mightNeedThese"
-            tools:listitem="@layout/guide_item_might_need_these" />
-
-        <TextView
-            android:id="@+id/mightNeedThese"
-            android:text="@string/might_need_these"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guideTitle"
-            style="@style/guide_title" />
-
-
-        <SearchView
-            android:id="@+id/search_view"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/search_bar_background"
-            android:iconifiedByDefault="false"
-            android:queryHint="Where next?"
-            android:searchIcon="@drawable/ic_search_bar_icon"
-            android:voiceSearchMode="showVoiceSearchButton|launchRecognizer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mightNeedRecyclerview"
-            app:queryBackground="@android:color/transparent"
-            app:queryHint="Where next?">
-        </SearchView>
-
-        <TextView
-            android:id="@+id/textView2"
-            style="@style/guide_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAllCaps="true"
-            android:text="@string/top_pick_articles"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search_view" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/topArticlesRecyclerview"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="1dp"
-            app:layout_constraintBottom_toTopOf="@+id/ghostImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            tools:listitem="@layout/top_pick_articles_item" />
+            tools:context=".presentation.guide.GuideFragment">
 
 
-        <ImageView
-            android:id="@+id/ghostImage"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_60sdp"
-            android:background="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.476"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topArticlesRecyclerview"
-            tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/guideTitle"
+                style="@style/fragments_title_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/guide"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/seeAllButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_14sdp"
-            android:text="@string/sell_all"
-            android:background="@android:color/transparent"
-            android:textAllCaps="false"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:textSize="@dimen/_14ssp"
-            android:lineHeight="@dimen/_17sdp"
-            android:textFontWeight="600"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:textColor="@color/guide_see_all_text_color"
-            app:layout_constraintBottom_toBottomOf="@+id/mightNeedThese"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/mightNeedThese"
-            tools:ignore="UnusedAttribute" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mightNeedRecyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_116sdp"
+                android:layout_marginTop="@dimen/_11sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mightNeedThese"
+                tools:listitem="@layout/guide_item_might_need_these" />
+
+            <TextView
+                android:id="@+id/mightNeedThese"
+                style="@style/guide_title"
+                android:text="@string/might_need_these"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/guideTitle" />
+
+            <EditText
+                android:id="@+id/searchBar"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_37sdp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/search_bar_background"
+                android:descendantFocusability="blocksDescendants"
+                android:drawableEnd="@drawable/ic_search_bar_icon"
+                android:drawablePadding="@dimen/_10sdp"
+                android:ellipsize="end"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/source_sans_pro"
+                android:hint="@string/where_next"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/_10sdp"
+                android:textColorHint="@color/car_ui_text_color_hint"
+                android:textSize="@dimen/_16ssp"
+                app:endIconDrawable="@drawable/ic_search_bar_icon"
+                app:endIconMode="custom"
+                app:endIconTint="@color/search_bar_icon_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mightNeedRecyclerview" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/guide_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/top_pick_articles"
+                android:textAllCaps="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchBar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/topArticlesRecyclerview"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="1dp"
+                app:layout_constraintBottom_toTopOf="@+id/ghostImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                tools:listitem="@layout/top_pick_articles_item" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/ghostImage"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_60sdp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.476"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/topArticlesRecyclerview"
+                tools:ignore="ContentDescription" />
+
+            <Button
+                android:id="@+id/seeAllButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_14sdp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/source_sans_pro_bold"
+                android:lineHeight="@dimen/_17sdp"
+                android:text="@string/sell_all"
+                android:textAllCaps="false"
+                android:textColor="@color/guide_see_all_text_color"
+                android:textFontWeight="600"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/mightNeedThese"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/mightNeedThese"
+                tools:ignore="UnusedAttribute" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

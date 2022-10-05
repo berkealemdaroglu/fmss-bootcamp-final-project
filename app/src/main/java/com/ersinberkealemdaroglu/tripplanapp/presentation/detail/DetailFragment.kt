@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentDetailBinding
-import dagger.hilt.android.AndroidEntryPoint
+import com.ersinberkealemdaroglu.tripplanapp.utils.apiDownloadFromUri
 
 class DetailFragment : Fragment() {
     private lateinit var detailBinding: FragmentDetailBinding
@@ -29,9 +29,13 @@ class DetailFragment : Fragment() {
         setBlogDataByArgs()
     }
 
-    private fun setBlogDataByArgs(){
+    private fun setBlogDataByArgs() {
         navArgs.let {
             detailBinding.blogDataItem = it.blogData
+        }
+
+        navArgs.let {
+            detailBinding.imageView.apiDownloadFromUri(it.blogData.images[0].url)
         }
     }
 

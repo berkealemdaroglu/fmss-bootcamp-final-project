@@ -4,16 +4,16 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
-fun ImageView.apiDownloadFromUri(post_excerpt : String?){
+fun ImageView.apiDownloadFromUri(url: String?) {
 
-    post_excerpt?.let {
+    url?.let {
         Glide.with(context)
-            .load(post_excerpt)
+            .load(url)
             .into(this)
     }
 }
 
 @BindingAdapter("android:downloadImageUrl")
-fun downloadImage(view: ImageView, post_excerpt: String?) {
-    view.apiDownloadFromUri(post_excerpt)
+fun downloadImage(view: ImageView, url: String?) {
+    view.apiDownloadFromUri(url)
 }

@@ -7,6 +7,10 @@
 
     </data>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +21,7 @@
             android:id="@+id/homeTopImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -41,7 +45,7 @@
             tools:ignore="UnusedAttribute" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="411dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="290dp"
             android:orientation="horizontal"
@@ -91,7 +95,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute"/>
+                tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute" />
 
             <Button
                 android:id="@+id/carsButton"
@@ -113,7 +117,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute"/>
+                tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute" />
 
             <Button
                 android:id="@+id/taxiButton"
@@ -135,12 +139,40 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute"/>
+                tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute" />
 
         </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homeRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_110sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            tools:listitem="@layout/deals_item" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:fontFamily="@font/source_sans_pro"
+            android:textColor="@color/search_title_color"
+            android:textSize="@dimen/_20ssp"
+            android:textFontWeight="600"
+            android:gravity="center"
+            android:text="DEALS"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeTopImage" />
+
+
 
 
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

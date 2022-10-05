@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-            <variable
-                name="blogDataItem"
-                type="com.ersinberkealemdaroglu.tripplanapp.domain.model.blogdatamodel.PostsPublish" />
+
+        <variable
+            name="imageData"
+            type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.Image" />
+
+        <variable
+            name="needTheseModel"
+            type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +20,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card"
-            android:layout_width="match_parent"
+            android:layout_width="138dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,15 +31,16 @@
                 android:id="@+id/localEvents"
                 android:layout_width="wrap_content"
 
-                android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="6dp">
 
                 <ImageView
+                    android:id="@+id/needImages"
                     android:layout_width="@dimen/_96sdp"
                     android:layout_height="@dimen/_108sdp"
                     android:scaleType="fitXY"
-                    android:downloadImageUrl="@{blogDataItem.post_excerpt}"
+                    android:downloadImageUrl="@{imageData.url}"
                     android:src="@drawable/guide_image"
                     tools:ignore="ContentDescription" />
 
@@ -54,7 +60,7 @@
                         android:elevation="@dimen/_10sdp"
                         android:fontFamily="@font/source_sans_pro_bold"
                         android:gravity="bottom"
-                        android:text="@{blogDataItem.tags_input[0]}"
+                        android:text="@{needTheseModel.title}"
                         android:textColor="@android:color/white"
                         android:textDirection="ltr"
                         android:textFontWeight="700"

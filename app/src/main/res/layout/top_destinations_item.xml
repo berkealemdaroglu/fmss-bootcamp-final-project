@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="topDestinationImage"
+            type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.Image" />
+
+        <variable
+            name="topDestinationItem"
+            type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_160sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/localEvents"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_5sdp"
+                app:cardCornerRadius="6dp">
+
+                <ImageView
+                    android:id="@+id/needImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:downloadImageUrl="@{topDestinationImage.url}"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/top_destination_test_images"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/cityText"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:textSize="@dimen/_20ssp"
+                    android:textFontWeight="700"
+                    android:layout_marginTop="@dimen/_minus15sdp"
+                    android:textColor="@color/top_destinations_text_color"
+                    tools:text="Tokyo"
+                    android:text="@{topDestinationItem.city}" />
+
+                <TextView
+                    android:id="@+id/countryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/source_sans_pro"
+                    tools:text="Japan"
+                    android:text="@{topDestinationItem.country}"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:textColor="@color/top_destinations_text_color"
+                    android:textFontWeight="600"
+                    android:textSize="@dimen/_16ssp" />
+
+
+            </androidx.cardview.widget.CardView>
+
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</layout>

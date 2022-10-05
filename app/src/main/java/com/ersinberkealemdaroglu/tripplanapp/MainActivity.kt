@@ -1,19 +1,21 @@
 package com.ersinberkealemdaroglu.tripplanapp
 
-import android.graphics.PorterDuff
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.MenuItemCompat
+import android.view.WindowManager
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.ersinberkealemdaroglu.tripplanapp.databinding.ActivityMainBinding
+import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.GuideFragmentViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    private val guideFragmentViewModel: GuideFragmentViewModel by viewModels()
     private lateinit var mainActivityBinding: ActivityMainBinding
     private lateinit var bottomMenuNavigationView: BottomNavigationView
 
@@ -21,11 +23,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mainActivityBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        this.window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+        actionBar?.hide()
+
         bottomNavigationMenu()
     }
 
-    private fun bottomNavigationMenu(){
-        val navigationView = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+    private fun bottomNavigationMenu() {
+        val navigationView =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         bottomMenuNavigationView = findViewById(R.id.bottomNavigationView)
         bottomMenuNavigationView.setupWithNavController(navigationView.navController)
         bottomMenuNavigationView.itemIconTintList = null
