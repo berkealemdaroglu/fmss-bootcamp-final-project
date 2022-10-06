@@ -19,7 +19,6 @@ class BlogDataAdapterViewHolder(private val blogDataBinding: ViewDataBinding) :
 
 
         blogDataBinding.setVariable(BR.needTheseModel, blogDataItem)
-        //blogDataBinding.needImages.apiDownloadFromUri(blogDataItem.images[0].url)
 
         blogDataBinding.root.rootView.setOnClickListener {
             mightNeedTheseOnClickListener?.onClick(blogDataItem)

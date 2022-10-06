@@ -16,7 +16,6 @@ class NearbyAdapterViewHolder(private val nearbyBinding: ViewDataBinding) :
     ) {
         nearbyBinding as SearchNearbyItemBinding
         nearbyBinding.setVariable(BR.nearbyItem, travelModelItem)
-        //nearbyBinding.nearbyImages.apiDownloadFromUri(travelModelItem.images[0].url)
 
         nearbyBinding.root.rootView.setOnClickListener {
             mightNeedTheseOnClickListener?.onClick(travelModelItem)

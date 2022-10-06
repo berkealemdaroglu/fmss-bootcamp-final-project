@@ -14,7 +14,6 @@ class BlogDataTopArticlesAdapterViewHolder(private val topArticlesBinding: ViewD
     fun topArticlesBind(blogDataItem: TravelModelItem) {
         topArticlesBinding as TopPickArticlesItemBinding
         topArticlesBinding.setVariable(BR.blogDataItem, blogDataItem)
-        //topArticlesBinding.cardViewImage.apiDownloadFromUri(blogDataItem.images[0].url)
 
         topArticlesBinding.cardViewImage.setOnClickListener {
             Navigation.findNavController(it)
