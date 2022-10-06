@@ -6,7 +6,7 @@ import com.bumptech.glide.Glide
 
 fun ImageView.apiDownloadFromUri(url: String?) {
 
-    url?.let {
+    url.let {
         Glide.with(context)
             .load(url)
             .into(this)
@@ -17,3 +17,5 @@ fun ImageView.apiDownloadFromUri(url: String?) {
 fun downloadImage(view: ImageView, url: String?) {
     view.apiDownloadFromUri(url)
 }
+
+

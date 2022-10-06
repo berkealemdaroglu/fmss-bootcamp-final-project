@@ -38,7 +38,7 @@
             android:id="@+id/nearbyImages"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:downloadImageUrl="@{nearbyImage.url}"
+            android:downloadImageUrl="@{nearbyItem.images[0].url}"
             android:scaleType="centerCrop"
             android:src="@drawable/nearby_item_test_image"
             tools:ignore="ContentDescription"/>

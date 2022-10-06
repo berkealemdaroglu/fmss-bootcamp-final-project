@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentGuideSeeAllBinding
 import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem
-import com.ersinberkealemdaroglu.tripplanapp.presentation.adapter.needblogadapter.BlogDataAdapter
+import com.ersinberkealemdaroglu.tripplanapp.presentation.adapter.needblogadapter.MightNeedTheseAdapter
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +21,7 @@ class GuideSeeAllFragment : Fragment() {
 
     private val guideFragmentViewModel: GuideFragmentViewModel by activityViewModels()
     private lateinit var seeAllBinding: FragmentGuideSeeAllBinding
-    private lateinit var blogDataAdapter: BlogDataAdapter
+    private lateinit var mightNeedTheseAdapter: MightNeedTheseAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,19 +41,19 @@ class GuideSeeAllFragment : Fragment() {
     }
 
     private fun init() {
-        blogDataAdapter = BlogDataAdapter()
+        mightNeedTheseAdapter = MightNeedTheseAdapter()
         seeAllBinding.seeAllRecyclerview.layoutManager = GridLayoutManager(context, 3)
-        seeAllBinding.seeAllRecyclerview.adapter = blogDataAdapter
+        seeAllBinding.seeAllRecyclerview.adapter = mightNeedTheseAdapter
     }
 
     private fun seeAllGetData() {
         guideFragmentViewModel.blogData.observe(viewLifecycleOwner) { blogDataApi ->
-            blogDataAdapter.setBlogDataModel(blogDataApi)
+            mightNeedTheseAdapter.setBlogDataModel(blogDataApi)
         }
     }
 
     private fun pushMightNeedThisOnClickController() {
-        blogDataAdapter.setMightNeedThisOnClickListener(object : MightNeedTheseOnClickListener {
+        mightNeedTheseAdapter.setMightNeedThisOnClickListener(object : MightNeedTheseOnClickListener {
             override fun onClick(travelItem: TravelModelItem) {
                 val action =
                     GuideSeeAllFragmentDirections.actionGuideSeeAllFragmentToDetailFragment(

@@ -7,10 +7,6 @@
 
     </data>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -143,18 +139,10 @@
 
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/homeRecyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_110sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView8"
-            tools:listitem="@layout/deals_item" />
+
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/dealsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_12sdp"
@@ -168,11 +156,66 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeTopImage" />
 
+        <Button
+            android:id="@+id/hotelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:text="Hotels"
+            android:textColor="@color/nearby_item_text_background_color"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toEndOf="@+id/flightsButton"
+            app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
 
+        <Button
+            android:id="@+id/flightsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:text="Flights"
+            android:textColor="@color/nearby_item_text_background_color"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toEndOf="@+id/allButton"
+            app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
 
+        <Button
+            android:id="@+id/allButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:text="All"
+            android:textColor="@color/nearby_item_text_background_color"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
 
+        <Button
+            android:id="@+id/transportButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:text="Transports"
+            android:textColor="@color/nearby_item_text_background_color"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/hotelButton"
+            app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homeRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_110sdp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allButton"
+            tools:listitem="@layout/deals_item" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 </layout>

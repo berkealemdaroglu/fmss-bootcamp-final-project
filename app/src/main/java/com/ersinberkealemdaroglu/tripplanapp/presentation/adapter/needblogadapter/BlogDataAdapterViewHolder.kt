@@ -6,7 +6,6 @@ import com.ersinberkealemdaroglu.tripplanapp.BR
 import com.ersinberkealemdaroglu.tripplanapp.databinding.GuideItemMightNeedTheseBinding
 import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
-import com.ersinberkealemdaroglu.tripplanapp.utils.apiDownloadFromUri
 
 class BlogDataAdapterViewHolder(private val blogDataBinding: ViewDataBinding) :
     RecyclerView.ViewHolder(blogDataBinding.root) {
@@ -20,7 +19,7 @@ class BlogDataAdapterViewHolder(private val blogDataBinding: ViewDataBinding) :
 
 
         blogDataBinding.setVariable(BR.needTheseModel, blogDataItem)
-        blogDataBinding.needImages.apiDownloadFromUri(blogDataItem.images[0].url)
+        //blogDataBinding.needImages.apiDownloadFromUri(blogDataItem.images[0].url)
 
         blogDataBinding.root.rootView.setOnClickListener {
             mightNeedTheseOnClickListener?.onClick(blogDataItem)

@@ -6,7 +6,7 @@
     <data>
             <variable
                 name="blogImagesDeals"
-                type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.Image" />
+                type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +18,7 @@
             android:padding="@dimen/_5sdp"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_108sdp"
-            android:downloadImageUrl="@{blogImagesDeals.url}"
+            android:downloadImageUrl="@{blogImagesDeals.images[0].url}"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -7,9 +7,6 @@
             <variable
                 name="blogDataItem"
                 type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
-        <variable
-            name="blogImages"
-            type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.Image" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,6 +35,7 @@
                     android:id="@+id/cardViewImage"
                     android:layout_width="match_parent"
                     android:layout_height="194dp"
+                    android:downloadImageUrl="@{blogDataItem.images[0].url}"
                     android:background="@android:color/transparent"
                     android:backgroundTint="@color/material_on_surface_emphasis_medium"
                     android:backgroundTintMode="add"

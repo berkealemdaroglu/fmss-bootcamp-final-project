@@ -11,7 +11,7 @@ import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModel
 import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 
-class BlogDataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MightNeedTheseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var blogDataModel: TravelModel = TravelModel()
     private var listener: MightNeedTheseOnClickListener? = null

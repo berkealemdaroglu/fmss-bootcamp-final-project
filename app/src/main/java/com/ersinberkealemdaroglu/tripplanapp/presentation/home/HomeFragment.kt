@@ -1,5 +1,6 @@
 package com.ersinberkealemdaroglu.tripplanapp.presentation.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,17 +9,25 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentHomeBinding
-import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.DealsAdapter
+import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.alladapter.AllItemAdapter
+import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.flightsadapter.FlightAdapter
+import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.hotelsadapter.HotelsAdapter
+import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.transportationsadapter.TransportationsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var homeBinding: FragmentHomeBinding
-    private val dealsAdapter = DealsAdapter()
+    private lateinit var allItemAdapter: AllItemAdapter
+    private lateinit var flightAdapter: FlightAdapter
+    private lateinit var hotelsAdapter: HotelsAdapter
+    private lateinit var transportationsAdapter: TransportationsAdapter
     private val homeFragmentViewModel: HomeFragmentViewModel by viewModels()
+    private var concatAdapter = ConcatAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,24 +40,88 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         init()
     }
 
     private fun init() {
+        allItemAdapter = AllItemAdapter()
+        flightAdapter = FlightAdapter()
+        hotelsAdapter = HotelsAdapter()
+        transportationsAdapter = TransportationsAdapter()
         homeBinding.homeRecyclerview.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        homeBinding.homeRecyclerview.adapter = dealsAdapter
+        homeBinding.homeRecyclerview.adapter = concatAdapter
 
+        concatAdapter()
+        allItemObserve()
+        flightObserve()
+        hotelsObserve()
+        transportObserve()
         staticHomeButtons()
-        dealsAdapter()
     }
 
-    private fun dealsAdapter() {
-        homeFragmentViewModel.getBlogData.observe(viewLifecycleOwner) { dealsData ->
-            dealsAdapter.setDealsData(dealsData)
+    @SuppressLint("NotifyDataSetChanged")
+    private fun allItemObserve() {
+        homeFragmentViewModel.getBlogData.observe(viewLifecycleOwner) { allItem ->
+            allItemAdapter.setAllData(allItem)
+            concatAdapter.notifyDataSetChanged()
+            homeBinding.allButton.setOnClickListener {
+                concatAdapter.addAdapter(allItemAdapter)
+                concatAdapter.notifyDataSetChanged()
+                concatAdapter.removeAdapter(flightAdapter)
+                concatAdapter.removeAdapter(transportationsAdapter)
+                concatAdapter.removeAdapter(hotelsAdapter)
+            }
         }
+    }
 
+    @SuppressLint("NotifyDataSetChanged")
+    private fun flightObserve() {
+        homeFragmentViewModel.getBlogData.observe(viewLifecycleOwner) { flight ->
+            flightAdapter.setFlightData(flight)
+            homeBinding.flightsButton.setOnClickListener {
+                concatAdapter.addAdapter(flightAdapter)
+                concatAdapter.notifyDataSetChanged()
+                concatAdapter.removeAdapter(allItemAdapter)
+                concatAdapter.removeAdapter(transportationsAdapter)
+                concatAdapter.removeAdapter(hotelsAdapter)
+            }
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun transportObserve() {
+        homeFragmentViewModel.getBlogData.observe(viewLifecycleOwner) { transport ->
+            transportationsAdapter.setTransportData(transport)
+            homeBinding.transportButton.setOnClickListener {
+                concatAdapter.addAdapter(transportationsAdapter)
+                concatAdapter.notifyDataSetChanged()
+                concatAdapter.removeAdapter(allItemAdapter)
+                concatAdapter.removeAdapter(flightAdapter)
+                concatAdapter.removeAdapter(hotelsAdapter)
+            }
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun hotelsObserve() {
+        homeFragmentViewModel.getBlogData.observe(viewLifecycleOwner) { hotels ->
+            hotelsAdapter.setHotelsData(hotels)
+            homeBinding.hotelButton.setOnClickListener {
+                concatAdapter.addAdapter(hotelsAdapter)
+                concatAdapter.notifyDataSetChanged()
+                concatAdapter.removeAdapter(allItemAdapter)
+                concatAdapter.removeAdapter(transportationsAdapter)
+                concatAdapter.removeAdapter(flightAdapter)
+            }
+        }
+    }
+
+    private fun concatAdapter() {
+        concatAdapter = ConcatAdapter(
+            allItemAdapter
+        )
+        homeBinding.homeRecyclerview.adapter = concatAdapter
     }
 
     private fun staticHomeButtons() {
@@ -68,6 +141,5 @@ class HomeFragment : Fragment() {
             Toast.makeText(context, "Taxi button push", Toast.LENGTH_SHORT).show()
         }
     }
-
 
 }

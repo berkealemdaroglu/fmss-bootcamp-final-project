@@ -6,10 +6,6 @@
     <data>
 
         <variable
-            name="topDestinationImage"
-            type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.Image" />
-
-        <variable
             name="topDestinationItem"
             type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
     </data>
@@ -38,7 +34,7 @@
                     android:id="@+id/needImages"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:downloadImageUrl="@{topDestinationImage.url}"
+                    android:downloadImageUrl="@{topDestinationItem.images[0].url}"
                     android:scaleType="centerCrop"
                     android:src="@drawable/top_destination_test_images"
                     tools:ignore="ContentDescription" />

@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModel
 import com.ersinberkealemdaroglu.tripplanapp.domain.usecase.BlogDataModelUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,14 +26,16 @@ class SearchViewModel @Inject constructor(private val blogDataModelUseCase: Blog
     }
 
     fun getAllBlogData() {
-        blogDataModelUseCase.getBlogData().enqueue(object : Callback<TravelModel> {
-            override fun onResponse(call: Call<TravelModel>, response: Response<TravelModel>) {
-                _blogData.value = response.body()
-            }
+        CoroutineScope(Dispatchers.IO).launch {
+            blogDataModelUseCase.getBlogData().enqueue(object : Callback<TravelModel> {
+                override fun onResponse(call: Call<TravelModel>, response: Response<TravelModel>) {
+                    _blogData.value = response.body()
+                }
 
-            override fun onFailure(call: Call<TravelModel>, t: Throwable) {
-                println("Warning!")
-            }
-        })
+                override fun onFailure(call: Call<TravelModel>, t: Throwable) {
+                    println("Warning!")
+                }
+            })
+        }
     }
 }

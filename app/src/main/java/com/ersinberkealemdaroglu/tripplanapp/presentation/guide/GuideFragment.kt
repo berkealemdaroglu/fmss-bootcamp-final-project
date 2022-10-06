@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentGuideBinding
 import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem
-import com.ersinberkealemdaroglu.tripplanapp.presentation.adapter.needblogadapter.BlogDataAdapter
+import com.ersinberkealemdaroglu.tripplanapp.presentation.adapter.needblogadapter.MightNeedTheseAdapter
 import com.ersinberkealemdaroglu.tripplanapp.presentation.adapter.toparticlesadapter.BlogDataTopArticlesAdapter
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,7 +22,7 @@ class GuideFragment : Fragment() {
 
     private lateinit var guideBinding: FragmentGuideBinding
     private val guideFragmentViewModel: GuideFragmentViewModel by activityViewModels()
-    private lateinit var blogDataAdapter: BlogDataAdapter
+    private lateinit var mightNeedTheseAdapter: MightNeedTheseAdapter
     private lateinit var blogDataTopArticlesAdapter: BlogDataTopArticlesAdapter
 
     override fun onCreateView(
@@ -44,10 +44,10 @@ class GuideFragment : Fragment() {
     }
 
     private fun init() {
-        blogDataAdapter = BlogDataAdapter()
+        mightNeedTheseAdapter = MightNeedTheseAdapter()
         guideBinding.mightNeedRecyclerview.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        guideBinding.mightNeedRecyclerview.adapter = blogDataAdapter
+        guideBinding.mightNeedRecyclerview.adapter = mightNeedTheseAdapter
 
         blogDataTopArticlesAdapter = BlogDataTopArticlesAdapter()
         guideBinding.topArticlesRecyclerview.layoutManager =
@@ -58,7 +58,7 @@ class GuideFragment : Fragment() {
 
     private fun getBlogDataApi() {
         guideFragmentViewModel.blogData.observe(viewLifecycleOwner) { getBlogData ->
-            blogDataAdapter.setBlogDataModel(getBlogData)
+            mightNeedTheseAdapter.setBlogDataModel(getBlogData)
         }
     }
 
@@ -75,7 +75,7 @@ class GuideFragment : Fragment() {
     }
 
     private fun pushMightNeedThisOnClickController() {
-        blogDataAdapter.setMightNeedThisOnClickListener(object : MightNeedTheseOnClickListener {
+        mightNeedTheseAdapter.setMightNeedThisOnClickListener(object : MightNeedTheseOnClickListener {
             override fun onClick(travelItem: TravelModelItem) {
                 val action = GuideFragmentDirections.actionGuideFragmentToDetailFragment(travelItem)
                 findNavController().navigate(action)
