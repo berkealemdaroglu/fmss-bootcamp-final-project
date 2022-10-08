@@ -7,13 +7,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.ersinberkealemdaroglu.tripplanapp.R
-import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModel
-import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModel
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
+import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 
 class TopDestinationsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var travelModel: TravelModel = TravelModel()
     private val topDestinationsList = ArrayList<TravelModelItem>()
     private lateinit var topDestinationBinding: ViewDataBinding
+    private var listener: MightNeedTheseOnClickListener? = null
 
     private fun topDestinationCategoryFilter() {
         for (travel in travelModel) {
@@ -35,11 +37,7 @@ class TopDestinationsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as TopDestinationsAdapterViewHolder).topDestinationBind(
-            topDestinationsList.get(
-                position
-            )
-        )
+        (holder as TopDestinationsAdapterViewHolder).topDestinationBind(topDestinationsList[position], listener)
     }
 
     override fun getItemCount(): Int {
@@ -51,5 +49,9 @@ class TopDestinationsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         this.travelModel = travelModel
         notifyDataSetChanged()
         topDestinationCategoryFilter()
+    }
+
+    fun setTopDestinationOnClickListener(listener: MightNeedTheseOnClickListener) {
+        this.listener = listener
     }
 }

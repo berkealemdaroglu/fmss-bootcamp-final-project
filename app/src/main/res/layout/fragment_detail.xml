@@ -6,35 +6,99 @@
     <data>
             <variable
                 name="blogDataItem"
-                type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
-        <variable
-            name="blogImages"
-            type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.Image" />
+                type="com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".presentation.detail.DetailFragment">
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/detailImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_300sdp"
+                android:scaleType="fitXY"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize8Percent_detail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:srcCompat="@drawable/detail_test_image" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="@dimen/_44sdp"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/guide_image"
-            tools:ignore="ContentDescription" />
+            android:padding="@dimen/_5sdp"
+            android:background="@drawable/ic_sizer_icon_background"
+            app:srcCompat="@drawable/sizer_icon" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
             android:text="@{blogDataItem.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)." />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="31dp"
+            android:fontFamily="@font/source_sans_pro_bold"
+            android:text="@{blogDataItem.title}"
+            android:textColor="@color/detail_title_color"
+            android:textSize="@dimen/_28ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailImage"
+            tools:text="Nusa Pedina" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_15ssp"
+            android:text="@{blogDataItem.city + ',' + ' ' + blogDataItem.country}"
+            android:textColor="@color/detaild_city_title_color"
+            android:drawablePadding="@dimen/_5sdp"
+            tools:text="Bali, Indonesia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:drawableStartCompat="@drawable/detail_pin_icon" />
+
+
+        <Button
+            android:id="@+id/addBookmarkButton"
+            android:layout_width="@dimen/_260sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
+            android:backgroundTint="@color/detail_button_background_color"
+            android:padding="@dimen/_15sdp"
+            android:text="Add Bookmark"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

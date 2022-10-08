@@ -11,9 +11,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentSearchBinding
-import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
 import com.ersinberkealemdaroglu.tripplanapp.presentation.search.adapter.NearbyAdapter
 import com.ersinberkealemdaroglu.tripplanapp.presentation.search.adapter.TopDestinationsAdapter
+import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -45,13 +46,17 @@ class SearchFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         searchBinding.topDestinationRV.adapter = topDestinationsAdapter
 
-        searchBinding.nearbyRV.layoutManager =
+        searchBinding.nearbyRecyclerview.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        searchBinding.nearbyRV.adapter = nearbyAdapter
+        searchBinding.nearbyRecyclerview.adapter = nearbyAdapter
 
         topDestinationsAdapter()
         nearbyAdapter()
         pushNearbyOnClickListener()
+        refreshData()
+        loadingData()
+        pushTopDestinationListener()
+        bookmarkAddLocalDB()
     }
 
     private fun topDestinationsAdapter() {
@@ -74,6 +79,53 @@ class SearchFragment : Fragment() {
                 findNavController().navigate(action)
             }
 
+        })
+    }
+
+    private fun pushTopDestinationListener(){
+        topDestinationsAdapter.setTopDestinationOnClickListener(object : MightNeedTheseOnClickListener{
+            override fun onClick(travelItem: TravelModelItem) {
+                val action =
+                    SearchFragmentDirections.actionSearchFragmentToDetailFragment(travelItem)
+                findNavController().navigate(action)
+            }
+        })
+    }
+
+    private fun refreshData() {
+        searchBinding.apply {
+            swipeRefreshLayout.setOnRefreshListener {
+                topDestinationRV.visibility = View.INVISIBLE
+                nearbyRecyclerview.visibility = View.INVISIBLE
+                searchViewModel.getAllBlogData()
+                swipeRefreshLayout.isRefreshing = false
+            }
+        }
+    }
+
+    private fun loadingData(){
+        searchViewModel.searchLoadData.observe(viewLifecycleOwner) { loading ->
+            loading?.let {
+                searchBinding.apply {
+                    if (it) {
+                        searchLoading.visibility = View.VISIBLE
+                        topDestinationRV.visibility = View.INVISIBLE
+                        nearbyRecyclerview.visibility = View.INVISIBLE
+                    } else {
+                        topDestinationRV.visibility = View.VISIBLE
+                        nearbyRecyclerview.visibility = View.VISIBLE
+                        searchLoading.visibility = View.GONE
+                    }
+                }
+            }
+        }
+    }
+
+    private fun bookmarkAddLocalDB() {
+        nearbyAdapter.setBookmarkOnClickListener(object : BookmarkOnItemClickListener {
+            override fun onClick(travelModelItem: TravelModelItem) {
+                searchViewModel.addBookmarkLocalDB(travelModelItem)
+            }
         })
     }
 }

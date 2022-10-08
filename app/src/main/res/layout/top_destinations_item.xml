@@ -7,7 +7,7 @@
 
         <variable
             name="topDestinationItem"
-            type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
+            type="com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem" />
     </data>
 
     <LinearLayout
@@ -34,8 +34,8 @@
                     android:id="@+id/needImages"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:downloadImageUrl="@{topDestinationItem.images[0].url}"
                     android:scaleType="centerCrop"
+                    android:downloadImageUrl="@{topDestinationItem.images[0].url}"
                     android:src="@drawable/top_destination_test_images"
                     tools:ignore="ContentDescription" />
 

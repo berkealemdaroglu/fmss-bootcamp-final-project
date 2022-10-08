@@ -6,24 +6,38 @@
     <data>
             <variable
                 name="blogImagesDeals"
-                type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
+                type="com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/_3sdp"
+            android:layout_margin="@dimen/_3sdp"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/dealsImage"
-            android:padding="@dimen/_5sdp"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_108sdp"
-            android:downloadImageUrl="@{blogImagesDeals.images[0].url}"
             android:scaleType="fitXY"
+            android:downloadImageUrl="@{blogImagesDeals.images[0].url}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

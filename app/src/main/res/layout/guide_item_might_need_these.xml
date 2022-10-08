@@ -6,7 +6,7 @@
     <data>
         <variable
             name="needTheseModel"
-            type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
+            type="com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

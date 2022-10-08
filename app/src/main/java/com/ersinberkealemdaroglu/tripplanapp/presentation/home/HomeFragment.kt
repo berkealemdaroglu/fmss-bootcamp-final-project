@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
         transportationsAdapter = TransportationsAdapter()
         homeBinding.homeRecyclerview.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        homeBinding.homeRecyclerview.adapter = concatAdapter
+        homeBinding.homeRecyclerview.adapter = allItemAdapter
 
         concatAdapter()
         allItemObserve()
@@ -58,6 +58,8 @@ class HomeFragment : Fragment() {
         hotelsObserve()
         transportObserve()
         staticHomeButtons()
+        refreshData()
+        loadingData()
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -124,6 +126,7 @@ class HomeFragment : Fragment() {
         homeBinding.homeRecyclerview.adapter = concatAdapter
     }
 
+
     private fun staticHomeButtons() {
         homeBinding.flightButton.setOnClickListener {
             Toast.makeText(context, "flight button push", Toast.LENGTH_SHORT).show()
@@ -139,6 +142,32 @@ class HomeFragment : Fragment() {
 
         homeBinding.taxiButton.setOnClickListener {
             Toast.makeText(context, "Taxi button push", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun refreshData() {
+        homeBinding.apply {
+            swipeRefreshLayout.setOnRefreshListener {
+                homeRecyclerview.visibility = View.INVISIBLE
+                homeFragmentViewModel.getAllBlogData()
+                swipeRefreshLayout.isRefreshing = false
+            }
+        }
+    }
+
+    private fun loadingData(){
+        homeFragmentViewModel.homeLoading.observe(viewLifecycleOwner) { loading ->
+            loading?.let {
+                homeBinding.apply {
+                    if (it) {
+                        homeLoading.visibility = View.VISIBLE
+                        homeRecyclerview.visibility = View.INVISIBLE
+                    } else {
+                        homeRecyclerview.visibility = View.VISIBLE
+                        homeLoading.visibility = View.GONE
+                    }
+                }
+            }
         }
     }
 

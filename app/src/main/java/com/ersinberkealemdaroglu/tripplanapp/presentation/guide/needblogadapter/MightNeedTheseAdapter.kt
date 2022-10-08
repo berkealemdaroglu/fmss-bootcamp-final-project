@@ -1,4 +1,4 @@
-package com.ersinberkealemdaroglu.tripplanapp.presentation.adapter.needblogadapter
+package com.ersinberkealemdaroglu.tripplanapp.presentation.guide.needblogadapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.ersinberkealemdaroglu.tripplanapp.R
-import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModel
-import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModel
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 
 class MightNeedTheseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

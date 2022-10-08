@@ -4,14 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <variable
-            name="nearbyImage"
-            type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.Image" />
-
         <variable
             name="nearbyItem"
-            type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
+            type="com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem" />
     </data>
 
     <LinearLayout
@@ -87,6 +82,7 @@
             android:fontFamily="@font/source_sans_pro" />
 
         <ImageButton
+            android:id="@+id/bookmarkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_9sdp"

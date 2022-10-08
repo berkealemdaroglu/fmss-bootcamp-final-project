@@ -11,8 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentGuideSeeAllBinding
-import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem
-import com.ersinberkealemdaroglu.tripplanapp.presentation.adapter.needblogadapter.MightNeedTheseAdapter
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
+import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.needblogadapter.MightNeedTheseAdapter
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 

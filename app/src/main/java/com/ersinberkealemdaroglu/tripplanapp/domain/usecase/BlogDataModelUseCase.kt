@@ -1,7 +1,7 @@
 package com.ersinberkealemdaroglu.tripplanapp.domain.usecase
 
 import com.ersinberkealemdaroglu.tripplanapp.domain.repository.BlogDataModelRepository
-import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModel
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModel
 import retrofit2.Call
 import javax.inject.Inject
 

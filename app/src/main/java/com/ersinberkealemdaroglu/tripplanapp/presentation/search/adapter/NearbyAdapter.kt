@@ -7,14 +7,16 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.ersinberkealemdaroglu.tripplanapp.R
-import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModel
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModel
+import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 
 class NearbyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var travelModel: TravelModel = TravelModel()
     private lateinit var nearbyBinding: ViewDataBinding
-    private var listener: MightNeedTheseOnClickListener? = null
+    private var detailOnClickListener: MightNeedTheseOnClickListener? = null
+    private var bookmarkOnItemClickListener: BookmarkOnItemClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         nearbyBinding = DataBindingUtil.inflate(
@@ -27,7 +29,7 @@ class NearbyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as NearbyAdapterViewHolder).nearbyBind(travelModel[position], listener)
+        (holder as NearbyAdapterViewHolder).nearbyBind(travelModel[position], detailOnClickListener, bookmarkOnItemClickListener)
     }
 
     override fun getItemCount(): Int {
@@ -41,6 +43,12 @@ class NearbyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     fun setNearbyOnClickListener(listener: MightNeedTheseOnClickListener) {
-        this.listener = listener
+        this.detailOnClickListener = listener
     }
+
+    fun setBookmarkOnClickListener(bookmarkOnClick: BookmarkOnItemClickListener) {
+        this.bookmarkOnItemClickListener = bookmarkOnClick
+    }
+
+
 }

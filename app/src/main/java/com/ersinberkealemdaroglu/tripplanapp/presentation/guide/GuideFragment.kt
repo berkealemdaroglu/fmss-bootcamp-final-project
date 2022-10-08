@@ -1,5 +1,6 @@
 package com.ersinberkealemdaroglu.tripplanapp.presentation.guide
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +12,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentGuideBinding
-import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem
-import com.ersinberkealemdaroglu.tripplanapp.presentation.adapter.needblogadapter.MightNeedTheseAdapter
-import com.ersinberkealemdaroglu.tripplanapp.presentation.adapter.toparticlesadapter.BlogDataTopArticlesAdapter
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
+import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.needblogadapter.MightNeedTheseAdapter
+import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.toparticlesadapter.BlogDataTopArticlesAdapter
+import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.adapter.BookmarkAdapter
+import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +27,7 @@ class GuideFragment : Fragment() {
     private val guideFragmentViewModel: GuideFragmentViewModel by activityViewModels()
     private lateinit var mightNeedTheseAdapter: MightNeedTheseAdapter
     private lateinit var blogDataTopArticlesAdapter: BlogDataTopArticlesAdapter
+    private val bookmarkAdapter: BookmarkAdapter = BookmarkAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +45,9 @@ class GuideFragment : Fragment() {
         getTopArticlesDataApi()
         seeAllNavigate()
         pushMightNeedThisOnClickController()
+        refreshData()
+        loadingData()
+        bookmarkAddLocalDB()
     }
 
     private fun init() {
@@ -75,7 +82,8 @@ class GuideFragment : Fragment() {
     }
 
     private fun pushMightNeedThisOnClickController() {
-        mightNeedTheseAdapter.setMightNeedThisOnClickListener(object : MightNeedTheseOnClickListener {
+        mightNeedTheseAdapter.setMightNeedThisOnClickListener(object :
+            MightNeedTheseOnClickListener {
             override fun onClick(travelItem: TravelModelItem) {
                 val action = GuideFragmentDirections.actionGuideFragmentToDetailFragment(travelItem)
                 findNavController().navigate(action)
@@ -83,4 +91,43 @@ class GuideFragment : Fragment() {
         })
     }
 
+    private fun refreshData() {
+        guideBinding.apply {
+            swipeRefreshLayout.setOnRefreshListener {
+                mightNeedRecyclerview.visibility = View.INVISIBLE
+                topArticlesRecyclerview.visibility = View.INVISIBLE
+                guideLoading.visibility = View.INVISIBLE
+                guideFragmentViewModel.getAllBlogData()
+                swipeRefreshLayout.isRefreshing = false
+            }
+        }
+    }
+
+    private fun loadingData() {
+        guideFragmentViewModel.guideLoading.observe(viewLifecycleOwner) { loading ->
+            loading?.let {
+                guideBinding.apply {
+                    if (it) {
+                        guideLoading.visibility = View.VISIBLE
+                        mightNeedRecyclerview.visibility = View.INVISIBLE
+                        topArticlesRecyclerview.visibility = View.INVISIBLE
+                    } else {
+                        mightNeedRecyclerview.visibility = View.VISIBLE
+                        topArticlesRecyclerview.visibility = View.VISIBLE
+                        guideLoading.visibility = View.GONE
+                    }
+                }
+            }
+        }
+    }
+
+    private fun bookmarkAddLocalDB() {
+        blogDataTopArticlesAdapter.setBookmarkOnClickListener(object : BookmarkOnItemClickListener {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onClick(travelModelItem: TravelModelItem) {
+                guideFragmentViewModel.addBookmarkLocalDB(travelModelItem)
+                bookmarkAdapter.notifyDataSetChanged()
+            }
+        })
+    }
 }

@@ -6,7 +6,7 @@
     <data>
             <variable
                 name="blogDataItem"
-                type="com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModelItem" />
+                type="com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,10 +35,10 @@
                     android:id="@+id/cardViewImage"
                     android:layout_width="match_parent"
                     android:layout_height="194dp"
-                    android:downloadImageUrl="@{blogDataItem.images[0].url}"
                     android:background="@android:color/transparent"
                     android:backgroundTint="@color/material_on_surface_emphasis_medium"
                     android:backgroundTintMode="add"
+                    android:downloadImageUrl="@{blogDataItem.images[0].url}"
                     android:contentDescription="@string/card_image"
                     android:scaleType="centerCrop"
                     android:src="@drawable/top_pick_articles_test_image" />
@@ -79,6 +79,7 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
+                    android:id="@+id/topPickBookmarkButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"

@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.ersinberkealemdaroglu.tripplanapp.R
-import com.ersinberkealemdaroglu.tripplanapp.domain.travelmodel.TravelModel
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModel
 import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.viewholder.DealsAdapterViewHolder
 
 class AllItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

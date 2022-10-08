@@ -19,6 +19,11 @@
         <item name="shapeAppearance">@style/ShapeAppearance.Material3.NavigationBarView.ActiveIndicator</item>
     </style>
 
+    <style name="ShapeAppearanceOverlay.App.CornerSize8Percent_detail" parent="">
+        <item name="cornerSizeBottomLeft">@dimen/_32sdp</item>
+        <item name="cornerSizeBottomRight">@dimen/_32sdp</item>
+    </style>
+
     <style name="guide_title">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

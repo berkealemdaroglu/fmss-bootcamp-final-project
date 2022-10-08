@@ -7,6 +7,12 @@
 
     </data>
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.HomeListFragment">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -104,11 +110,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.476"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nearbyRV"
+            app:layout_constraintTop_toBottomOf="@+id/nearbyRecyclerview"
             tools:ignore="ContentDescription" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/nearbyRV"
+            android:id="@+id/nearbyRecyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_12sdp"
@@ -119,7 +125,17 @@
             tools:layout_editor_absoluteX="0dp"
             tools:listitem="@layout/search_nearby_item" />
 
+        <ProgressBar
+            android:id="@+id/searchLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>
