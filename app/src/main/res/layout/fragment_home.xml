@@ -227,6 +227,17 @@
             app:layout_constraintTop_toBottomOf="@+id/allButton"
             tools:listitem="@layout/deals_item" />
 
+        <ImageView
+            android:id="@+id/ghostImage"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeRecyclerview"
+            tools:ignore="ContentDescription" />
+
         <ProgressBar
             android:id="@+id/homeLoading"
             android:layout_width="wrap_content"

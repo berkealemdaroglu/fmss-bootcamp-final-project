@@ -46,24 +46,23 @@
                     <TextView
                         android:id="@+id/tag_id"
                         android:layout_width="0dp"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginBottom="8dp"
                         android:elevation="@dimen/_10sdp"
                         android:fontFamily="@font/source_sans_pro_bold"
-                        android:gravity="bottom"
+                        android:gravity="bottom|center"
                         android:text="@{needTheseModel.title}"
                         android:textColor="@android:color/white"
                         android:textDirection="ltr"
                         android:textFontWeight="700"
-                        android:textSize="@dimen/_18ssp"
+                        android:textSize="@dimen/_14ssp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="UnusedAttribute" />
+                        tools:ignore="UnusedAttribute"
+                        tools:text="Bali, Indonesia" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.ersinberkealemdaroglu.tripplanapp.presentation.trip
+package com.ersinberkealemdaroglu.tripplanapp.presentation.trip.bookmark
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -15,20 +15,20 @@ import javax.inject.Inject
 class BookmarkViewModel @Inject constructor(private val databaseRepository: DatabaseRepository) : ViewModel() {
 
     private val _travelModel = MutableLiveData<List<TravelModelItem>>()
-    val travelModel : LiveData<List<TravelModelItem>>
+    val travelModel: LiveData<List<TravelModelItem>>
         get() = _travelModel
 
     init {
         getTravelModelLocalDB()
     }
 
-    fun getTravelModelLocalDB(){
+    fun getTravelModelLocalDB() {
         CoroutineScope(Dispatchers.IO).launch {
             _travelModel.postValue(databaseRepository.getAllBookmark())
         }
     }
 
-    fun deleteTravelModelLocalDB(id : String){
+    fun deleteTravelModelLocalDB(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
             databaseRepository.delete(id)
         }

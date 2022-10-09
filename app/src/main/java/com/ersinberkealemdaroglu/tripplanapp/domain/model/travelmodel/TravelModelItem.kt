@@ -24,11 +24,3 @@ data class TravelModelItem constructor(
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0
 }
-
-class ImagesTypeConverter {
-    @TypeConverter
-    fun listToJson(value: List<Image>?) = Gson().toJson(value)
-
-    @TypeConverter
-    fun jsonToList(value: String) = Gson().fromJson(value, Array<Image>::class.java).toList()
-}

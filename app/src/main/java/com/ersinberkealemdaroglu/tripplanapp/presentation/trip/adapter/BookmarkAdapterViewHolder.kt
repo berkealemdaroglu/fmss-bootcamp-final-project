@@ -1,19 +1,20 @@
 package com.ersinberkealemdaroglu.tripplanapp.presentation.trip.adapter
 
 import androidx.databinding.ViewDataBinding
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.ersinberkealemdaroglu.tripplanapp.BR
 import com.ersinberkealemdaroglu.tripplanapp.databinding.SearchNearbyItemBinding
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
-import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.BookmarkFragmentDirections
 import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 
-class BookmarkAdapterViewHolder(private val bookmarkBinding: ViewDataBinding) : RecyclerView.ViewHolder(bookmarkBinding.root) {
+class BookmarkAdapterViewHolder(private val bookmarkBinding: ViewDataBinding) :
+    RecyclerView.ViewHolder(bookmarkBinding.root) {
 
-    fun bookmarkBind(travelModelItem: TravelModelItem, bookmarkOnItemClickListener: BookmarkOnItemClickListener?,
-    mightNeedTheseOnClickListener: MightNeedTheseOnClickListener?){
+    fun bookmarkBind(
+        travelModelItem: TravelModelItem, bookmarkOnItemClickListener: BookmarkOnItemClickListener?,
+        mightNeedTheseOnClickListener: MightNeedTheseOnClickListener?
+    ) {
         bookmarkBinding as SearchNearbyItemBinding
         bookmarkBinding.setVariable(BR.nearbyItem, travelModelItem)
 

@@ -34,16 +34,17 @@
                     android:id="@+id/needImages"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
                     android:downloadImageUrl="@{topDestinationItem.images[0].url}"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/top_destination_test_images"
                     tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/cityText"
                     android:layout_gravity="center"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/_100sdp"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:textAllCaps="false"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:textSize="@dimen/_20ssp"
@@ -55,9 +56,10 @@
 
                 <TextView
                     android:id="@+id/countryText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/_100sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:gravity="center"
                     android:fontFamily="@font/source_sans_pro"
                     tools:text="Japan"
                     android:text="@{topDestinationItem.country}"

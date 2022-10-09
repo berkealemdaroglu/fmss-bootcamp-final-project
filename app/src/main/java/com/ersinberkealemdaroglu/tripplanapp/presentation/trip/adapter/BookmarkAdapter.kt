@@ -7,7 +7,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.ersinberkealemdaroglu.tripplanapp.R
-import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModel
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
 import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
@@ -15,8 +14,8 @@ import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 class BookmarkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private lateinit var bookmarkBinding: ViewDataBinding
     private var travelModel: ArrayList<TravelModelItem> = ArrayList()
-    private var bookmarkOnItemClickListener : BookmarkOnItemClickListener? = null
-    private var mightNeedTheseOnClickListener : MightNeedTheseOnClickListener? = null
+    private var bookmarkOnItemClickListener: BookmarkOnItemClickListener? = null
+    private var mightNeedTheseOnClickListener: MightNeedTheseOnClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         bookmarkBinding = DataBindingUtil.inflate(
@@ -30,7 +29,11 @@ class BookmarkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as BookmarkAdapterViewHolder).bookmarkBind(travelModel[position], bookmarkOnItemClickListener, mightNeedTheseOnClickListener)
+        (holder as BookmarkAdapterViewHolder).bookmarkBind(
+            travelModel[position],
+            bookmarkOnItemClickListener,
+            mightNeedTheseOnClickListener
+        )
     }
 
     override fun getItemCount(): Int {
@@ -38,13 +41,13 @@ class BookmarkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setBookmarkData(travelModelItems: List<TravelModelItem>){
+    fun setBookmarkData(travelModelItems: List<TravelModelItem>) {
         this.travelModel.clear()
         this.travelModel.addAll(travelModelItems)
         notifyDataSetChanged()
     }
 
-    fun setBookmarkItemOnClickListener(bookmarkOnItemClickListener: BookmarkOnItemClickListener){
+    fun setBookmarkItemOnClickListener(bookmarkOnItemClickListener: BookmarkOnItemClickListener) {
         this.bookmarkOnItemClickListener = bookmarkOnItemClickListener
     }
 

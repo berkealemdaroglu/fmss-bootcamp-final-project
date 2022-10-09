@@ -1,5 +1,6 @@
 package com.ersinberkealemdaroglu.tripplanapp.presentation.trip
 
+import android.content.ContextWrapper
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,19 +8,21 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentTripScreenBinding
 import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.adapter.ViewPagerAdapter
+import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.bookmark.BookmarkFragment
+import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.tripbookmark.TripsBookmarkFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.channels.ticker
 
+@AndroidEntryPoint
 class TripScreenFragment : Fragment() {
     private lateinit var tripBinding: FragmentTripScreenBinding
-    private lateinit var viewPager : ViewPager2
+    private lateinit var viewPager: ViewPager2
     private val fragmentItems = ArrayList<Fragment>()
     private val fragmentTitle = ArrayList<String>()
     private lateinit var tabLayout: TabLayout
@@ -37,21 +40,20 @@ class TripScreenFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         init()
-    }
-
-    private fun init(){
-        viewPager = tripBinding.viewPager
         viewPagerSetup()
     }
 
-    private fun viewPagerSetup(){
-        fragmentItems.add(TripsFragment())
+    private fun init() {
+        viewPager = tripBinding.viewPager
+    }
+
+    private fun viewPagerSetup() {
+        fragmentItems.add(TripsBookmarkFragment())
         fragmentItems.add(BookmarkFragment())
         fragmentTitle.add("Trips")
         fragmentTitle.add("Bookmarks")
 
-        val viewPagerAdapter = ViewPagerAdapter(fragmentItems, context as AppCompatActivity)
-        tripBinding.viewPager.adapter = viewPagerAdapter
+        tripBinding.viewPager.adapter = ViewPagerAdapter(fragmentItems, this)
         tabLayout = tripBinding.tabLayout
 
         TabLayoutMediator(tripBinding.tabLayout, viewPager) { tab, position ->

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -10,17 +11,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="314dp"
-            android:layout_height="94dp"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:gravity="center"
-            android:text="Trips Screen"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_26ssp"
-            app:layout_constraintBottom_toBottomOf="parent"
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tripRecyclerview"
+            android:layout_width="409dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/floating_action_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/floating_action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="104dp"
+            android:background="@drawable/bottom_menu_background_curved"
+            android:backgroundTint="@color/detail_button_background_color"
+            android:padding="@dimen/_18sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/plus_button_icon" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

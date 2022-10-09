@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="TripItem"
+            type="com.ersinberkealemdaroglu.tripplanapp.domain.model.tripmodel.TripModel" />
+    </data>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_160sdp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/localEvents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="6dp">
+
+            <ImageView
+                android:id="@+id/nearbyImages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/trips_test_image"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/cityText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_minus15sdp"
+                android:fontFamily="@font/source_sans_pro_bold"
+                android:text="@{TripItem.city}"
+                android:textAllCaps="false"
+                android:textColor="@color/top_destinations_text_color"
+                android:textFontWeight="700"
+                android:textSize="@dimen/_20ssp"
+                tools:text="Tokyo" />
+
+            <TextView
+                android:id="@+id/countryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="@{TripItem.country}"
+                android:textColor="@color/top_destinations_text_color"
+                android:textFontWeight="600"
+                android:textSize="@dimen/_16ssp"
+                tools:text="Japan" />
+
+            <TextView
+                android:id="@+id/timeLeft"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:layout_marginStart="@dimen/_210sdp"
+                android:fontFamily="@font/source_sans_pro"
+                android:textColor="@color/home_title_color"
+                android:textSize="@dimen/_13ssp"
+                android:gravity="center"
+                android:padding="@dimen/_4sdp"
+                android:drawablePadding="@dimen/_4sdp"
+                android:drawableStart="@drawable/trip_item_clock_icon"
+                android:layout_height="wrap_content"
+                android:text="5 Days Left" />
+
+            <TextView
+                android:id="@+id/tripsItem"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:fontFamily="@font/source_sans_pro"
+                android:textColor="@color/home_title_color"
+                android:textSize="@dimen/_13ssp"
+                android:gravity="center"
+                android:padding="@dimen/_4sdp"
+                android:drawablePadding="@dimen/_4sdp"
+                android:drawableStart="@drawable/tip_items_icon"
+                android:layout_height="wrap_content"
+                android:text="5 Days Left" />
+
+        </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

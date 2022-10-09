@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.tripmodel.TripModel
 
 @Dao
 interface TravelAppDao {
@@ -22,4 +23,16 @@ interface TravelAppDao {
 
     @Query("DELETE FROM TRAVELMODELITEM WHERE id = :id")
     suspend fun delete(id: String)
+
+    @Insert
+    suspend fun insertTripModel(vararg tripModel: TripModel)
+
+    @Query("SELECT * FROM TRIPMODEL ORDER BY id DESC")
+    fun getAllTripModel(): LiveData<List<TripModel>>
+
+    @Query("SELECT * FROM TRIPMODEL WHERE id= :id")
+    suspend fun getTripModel(id: Int): TripModel
+
+    @Query("SELECT EXISTS (SELECT 1 FROM TRIPMODEL WHERE id = :id)")
+    suspend fun tripModelExists(id: Int): Boolean
 }

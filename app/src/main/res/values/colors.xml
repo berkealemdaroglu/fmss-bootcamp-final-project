@@ -20,6 +20,7 @@
     <color name="detail_title_color">#0A2753</color>
     <color name="detaild_city_title_color">#39414B</color>
     <color name="detail_button_background_color">#FF4760</color>
+    <color name="category_title_color">#0048F0</color>
 
 
 </resources>

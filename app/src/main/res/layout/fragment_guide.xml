@@ -64,7 +64,7 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:fontFamily="@font/source_sans_pro"
-                    android:hint="@string/where_next"
+                    android:hint="A country, a city, a place... or anything "
                     android:inputType="text"
                     android:maxLines="1"
                     android:padding="@dimen/_10sdp"
@@ -82,6 +82,7 @@
                     style="@style/guide_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_60sdp"
                     android:text="@string/top_pick_articles"
                     android:textAllCaps="true"
                     app:layout_constraintStart_toStartOf="parent"
@@ -140,6 +141,15 @@
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/topArticlesRecyclerview" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_42sdp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:listitem="@layout/category_item_guide"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/searchBar" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
