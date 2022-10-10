@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -22,6 +23,7 @@ import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.toparticlesadapt
 import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.adapter.BookmarkAdapter
 import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -55,6 +57,7 @@ class GuideFragment : Fragment() {
         bookmarkAddLocalDB()
         getAllGuideCategoryData()
         searchBottomSheet()
+        bottomNavigationVisible()
     }
 
     private fun init() {
@@ -179,5 +182,13 @@ class GuideFragment : Fragment() {
 
             }
         })
+    }
+
+    private fun bottomNavigationVisible(){
+        //Bottom Navigation VISIBLE
+        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val navbarBlur = requireActivity().findViewById<ImageView>(R.id.background_blur_bottom_navigation)
+        navBar.visibility = View.VISIBLE
+        navbarBlur.visibility = View.VISIBLE
     }
 }

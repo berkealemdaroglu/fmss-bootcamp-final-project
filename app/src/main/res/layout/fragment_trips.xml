@@ -12,10 +12,9 @@
         android:layout_height="match_parent">
 
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tripRecyclerview"
-            android:layout_width="409dp"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@+id/floating_action_button"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +25,7 @@
             android:id="@+id/floating_action_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_100sdp"
+            android:layout_marginBottom="@dimen/_70sdp"
             android:background="@drawable/bottom_menu_background_curved"
             android:backgroundTint="@color/detail_button_background_color"
             android:padding="@dimen/_18sdp"

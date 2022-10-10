@@ -84,7 +84,7 @@
     <dialog
         android:id="@+id/tripBottomSheet"
         tools:layout="@layout/trip_bottom_sheet"
-        android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.bottomsheet.TripBottomSheet"
+        android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.trip.tripbookmark.TripBottomSheet"
         android:label="TripBottomSheet" />
     <fragment
         android:id="@+id/imageFullSize"

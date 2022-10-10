@@ -34,9 +34,10 @@
                     android:id="@+id/needImages"
                     android:layout_width="@dimen/_96sdp"
                     android:layout_height="@dimen/_108sdp"
+                    android:foreground="@drawable/recyclerview_items_image_background_stroke"
                     android:downloadImageUrl="@{needTheseModel.images[0].url}"
                     android:scaleType="fitXY"
-                    android:src="@drawable/guide_image"
+                    tools:src="@drawable/guide_image"
                     tools:ignore="ContentDescription" />
 
 

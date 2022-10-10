@@ -94,29 +94,19 @@
                 android:id="@+id/addBookmarkButton"
                 android:layout_width="@dimen/_260sdp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginBottom="@dimen/_25sdp"
                 android:backgroundTint="@color/detail_button_background_color"
                 android:padding="@dimen/_15sdp"
                 android:text="@string/add_bookmark"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                app:layout_constraintBottom_toTopOf="@+id/ghostImage"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
                 tools:ignore="MissingConstraints" />
-
-            <ImageView
-                android:id="@+id/ghostImage"
-                android:layout_width="410dp"
-                android:layout_height="@dimen/_80sdp"
-                android:background="@android:color/transparent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.476"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="ContentDescription" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

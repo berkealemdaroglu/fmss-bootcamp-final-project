@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -14,6 +15,7 @@ import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentGuideSeeAllBind
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
 import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.needblogadapter.MightNeedTheseAdapter
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,6 +40,7 @@ class GuideSeeAllFragment : Fragment() {
         init()
         seeAllGetData()
         pushMightNeedThisOnClickController()
+        bottomNavigationInvisible()
     }
 
     private fun init() {
@@ -63,6 +66,14 @@ class GuideSeeAllFragment : Fragment() {
                 findNavController().navigate(action)
             }
         })
+    }
+
+    private fun bottomNavigationInvisible(){
+        //Bottom Navigation INVISIBLE
+        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val navbarBlur = requireActivity().findViewById<ImageView>(R.id.background_blur_bottom_navigation)
+        navBar.visibility = View.INVISIBLE
+        navbarBlur.visibility = View.INVISIBLE
     }
 
 }

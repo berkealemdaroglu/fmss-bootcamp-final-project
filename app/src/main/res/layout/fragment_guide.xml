@@ -71,7 +71,7 @@
                     android:maxLines="1"
                     android:padding="@dimen/_10sdp"
                     android:textColorHint="@color/car_ui_text_color_hint"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_13ssp"
                     app:endIconDrawable="@drawable/ic_search_bar_icon"
                     app:endIconMode="custom"
                     app:endIconTint="@color/search_bar_icon_color"

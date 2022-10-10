@@ -37,12 +37,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="194dp"
                     android:background="@android:color/transparent"
-                    android:backgroundTint="@color/material_on_surface_emphasis_medium"
+                    android:backgroundTint="@color/black"
                     android:backgroundTintMode="add"
                     android:contentDescription="@string/card_image"
                     android:downloadImageUrl="@{blogDataItem.images[0].url}"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/top_pick_articles_test_image" />
+                    tools:src="@drawable/top_pick_articles_test_image" />
 
                 <TextView
                     android:layout_width="match_parent"

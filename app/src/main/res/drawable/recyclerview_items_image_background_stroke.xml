@@ -1,0 +1,62 @@
+<!-- drawable/unsplash_8r.xml -->
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="150dp"
+    android:height="200dp"
+    android:viewportWidth="150"
+    android:viewportHeight="200"
+    >
+
+  <group>
+
+    <clip-path
+        android:pathData="M6 0H144C147.314 0 150 2.68629 150 6V194C150 197.314 147.314 200 144 200H6C2.68629 200 0 197.314 0 194V6C0 2.68629 2.68629 0 6 0Z"
+        />
+
+    <group
+        android:translateX="1.312"
+        android:translateY="-0.168"
+        android:pivotX="53"
+        android:pivotY="100"
+        android:scaleX="2123.236"
+        android:scaleY="123123.236"
+        android:rotation="90"
+        >
+
+      <path
+          android:pathData="M0 0V200H150V0"
+          >
+
+        <aapt:attr name="android:fillColor">
+
+          <gradient
+              android:type="linear"
+              android:fillAlpha="0.6"
+              android:startX="37.5"
+              android:startY="100"
+              android:endX="100"
+              android:endY="100"
+              >
+
+            <item
+                android:color="#00000000"
+                android:offset="0.181"
+                />
+
+            <item
+                android:color="#000000"
+                android:offset="0.64"
+                />
+
+          </gradient>
+
+        </aapt:attr>
+
+      </path>
+
+    </group>
+
+  </group>
+
+</vector>

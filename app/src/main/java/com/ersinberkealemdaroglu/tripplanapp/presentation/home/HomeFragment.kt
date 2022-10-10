@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -17,6 +18,7 @@ import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.alladapte
 import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.flightsadapter.FlightAdapter
 import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.hotelsadapter.HotelsAdapter
 import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.transportationsadapter.TransportationsAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -62,6 +64,7 @@ class HomeFragment : Fragment() {
         staticHomeButtons()
         refreshData()
         loadingData()
+        bottomNavigationVisible()
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -171,6 +174,14 @@ class HomeFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun bottomNavigationVisible(){
+        //Bottom Navigation VISIBLE
+        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val navbarBlur = requireActivity().findViewById<ImageView>(R.id.background_blur_bottom_navigation)
+        navBar.visibility = View.VISIBLE
+        navbarBlur.visibility = View.VISIBLE
     }
 
 }

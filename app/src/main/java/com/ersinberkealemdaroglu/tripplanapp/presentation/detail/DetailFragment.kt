@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -12,7 +13,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentDetailBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class DetailFragment : Fragment() {
@@ -35,6 +38,7 @@ class DetailFragment : Fragment() {
         setBlogDataByArgs()
         bookmarkAddLocalDB()
         imageFull()
+        bottomNavigationInvisible()
     }
 
     private fun setBlogDataByArgs() {
@@ -62,6 +66,14 @@ class DetailFragment : Fragment() {
                 )
             }
         }
+    }
+
+    private fun bottomNavigationInvisible(){
+        //Bottom Navigation INVISIBLE
+        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val navbarBlur = requireActivity().findViewById<ImageView>(R.id.background_blur_bottom_navigation)
+        navBar.visibility = View.INVISIBLE
+        navbarBlur.visibility = View.INVISIBLE
     }
 
 }

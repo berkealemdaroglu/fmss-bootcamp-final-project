@@ -67,7 +67,7 @@
                 android:fontFamily="@font/source_sans_pro"
                 android:gravity="center"
                 android:padding="@dimen/_4sdp"
-                android:text="@string/_5_items"
+                android:text="@string/_5_days_left"
                 android:textColor="@color/home_title_color"
                 android:textSize="@dimen/_13ssp"
                 app:drawableStartCompat="@drawable/trip_item_clock_icon" />
@@ -82,7 +82,7 @@
                 android:fontFamily="@font/source_sans_pro"
                 android:gravity="center"
                 android:padding="@dimen/_4sdp"
-                android:text="@string/_5_days_left"
+                android:text="@string/_5_items"
                 android:textColor="@color/home_title_color"
                 android:textSize="@dimen/_13ssp"
                 app:drawableStartCompat="@drawable/tip_items_icon" />

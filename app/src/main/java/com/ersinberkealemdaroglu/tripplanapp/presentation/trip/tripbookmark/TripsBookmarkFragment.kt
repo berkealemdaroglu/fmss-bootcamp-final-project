@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentTripsBinding
-import com.ersinberkealemdaroglu.tripplanapp.presentation.bottomsheet.TripBottomSheet
 import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.adapter.TripBookmarkAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,7 +53,6 @@ class TripsBookmarkFragment : Fragment() {
     private fun getAllTripModel() {
         tripBookmarkViewModel.getAllTripModelLocalDB().observe(viewLifecycleOwner) { tripModel ->
             tripBookmarkAdapter.setTripModel(tripModel)
-            println("osman 2" + tripModel.size)
         }
     }
 

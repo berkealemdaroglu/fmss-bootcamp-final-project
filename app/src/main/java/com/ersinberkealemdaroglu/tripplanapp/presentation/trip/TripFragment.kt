@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
@@ -12,9 +13,11 @@ import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentTripScreenBindi
 import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.adapter.ViewPagerAdapter
 import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.bookmark.BookmarkFragment
 import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.tripbookmark.TripsBookmarkFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class TripScreenFragment : Fragment() {
@@ -23,6 +26,7 @@ class TripScreenFragment : Fragment() {
     private val fragmentItems = ArrayList<Fragment>()
     private val fragmentTitle = ArrayList<String>()
     private lateinit var tabLayout: TabLayout
+    private val tabIcons = intArrayOf(R.drawable.trips_bookmark_icon, R.drawable.bookmark_icon)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +42,7 @@ class TripScreenFragment : Fragment() {
 
         init()
         viewPagerSetup()
+        bottomNavigationVisible()
     }
 
     private fun init() {
@@ -52,10 +57,22 @@ class TripScreenFragment : Fragment() {
 
         tripBinding.viewPager.adapter = ViewPagerAdapter(fragmentItems, this)
         tabLayout = tripBinding.tabLayout
-
         TabLayoutMediator(tripBinding.tabLayout, viewPager) { tab, position ->
             tab.text = fragmentTitle[position]
         }.attach()
+
+        tripBinding.tabLayout.getTabAt(0)!!.setIcon(tabIcons[0])
+        tripBinding.tabLayout.getTabAt(1)!!.setIcon(tabIcons[1])
+
+    }
+
+    private fun bottomNavigationVisible() {
+        //Bottom Navigation VISIBLE
+        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val navbarBlur =
+            requireActivity().findViewById<ImageView>(R.id.background_blur_bottom_navigation)
+        navBar.visibility = View.VISIBLE
+        navbarBlur.visibility = View.VISIBLE
     }
 
 

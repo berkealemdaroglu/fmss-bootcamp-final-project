@@ -42,7 +42,7 @@
             app:menu="@menu/bottom_menu" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/background_blur_bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="fitXY"

@@ -1,7 +1,9 @@
 package com.ersinberkealemdaroglu.tripplanapp
 
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
@@ -24,7 +26,6 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
         actionBar?.hide()
-
         bottomNavigationMenu()
     }
 
