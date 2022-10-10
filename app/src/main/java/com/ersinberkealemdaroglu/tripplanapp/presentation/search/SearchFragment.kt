@@ -1,9 +1,12 @@
 package com.ersinberkealemdaroglu.tripplanapp.presentation.search
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -57,6 +60,7 @@ class SearchFragment : Fragment() {
         loadingData()
         pushTopDestinationListener()
         bookmarkAddLocalDB()
+        searchBottomSheet()
     }
 
     private fun topDestinationsAdapter() {
@@ -82,8 +86,9 @@ class SearchFragment : Fragment() {
         })
     }
 
-    private fun pushTopDestinationListener(){
-        topDestinationsAdapter.setTopDestinationOnClickListener(object : MightNeedTheseOnClickListener{
+    private fun pushTopDestinationListener() {
+        topDestinationsAdapter.setTopDestinationOnClickListener(object :
+            MightNeedTheseOnClickListener {
             override fun onClick(travelItem: TravelModelItem) {
                 val action =
                     SearchFragmentDirections.actionSearchFragmentToDetailFragment(travelItem)
@@ -103,7 +108,7 @@ class SearchFragment : Fragment() {
         }
     }
 
-    private fun loadingData(){
+    private fun loadingData() {
         searchViewModel.searchLoadData.observe(viewLifecycleOwner) { loading ->
             loading?.let {
                 searchBinding.apply {
@@ -125,6 +130,35 @@ class SearchFragment : Fragment() {
         nearbyAdapter.setBookmarkOnClickListener(object : BookmarkOnItemClickListener {
             override fun onClick(travelModelItem: TravelModelItem) {
                 searchViewModel.addBookmarkLocalDB(travelModelItem)
+            }
+        })
+    }
+
+    private fun searchBottomSheet() {
+        searchBinding.searchBar.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                searchBinding.searchBar.setOnEditorActionListener { v, actionId, event ->
+                    if (actionId != EditorInfo.IME_ACTION_DONE) {
+                        val searchText = s.toString()
+                        val action =
+                            SearchFragmentDirections.actionSearchFragmentToSearchListFragment(
+                                searchText
+                            )
+                        findNavController().navigate(action)
+                        true
+                    } else {
+                        println("false")
+                        false
+                    }
+                }
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
             }
         })
     }

@@ -65,6 +65,7 @@
                     android:focusableInTouchMode="true"
                     android:fontFamily="@font/source_sans_pro"
                     android:hint="A country, a city, a place... or anything "
+                    android:imeOptions="actionSearch"
                     android:inputType="text"
                     android:maxLines="1"
                     android:padding="@dimen/_10sdp"
@@ -143,13 +144,14 @@
                     app:layout_constraintTop_toTopOf="@+id/topArticlesRecyclerview" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/categoryRecyclerview"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_42sdp"
                     app:layout_constraintBottom_toTopOf="@+id/textView2"
                     app:layout_constraintEnd_toEndOf="parent"
-                    tools:listitem="@layout/category_item_guide"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/searchBar" />
+                    app:layout_constraintTop_toBottomOf="@+id/searchBar"
+                    tools:listitem="@layout/category_item_guide" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

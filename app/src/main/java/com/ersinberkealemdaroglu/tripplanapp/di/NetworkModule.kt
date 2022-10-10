@@ -2,7 +2,9 @@ package com.ersinberkealemdaroglu.tripplanapp.di
 
 import com.ersinberkealemdaroglu.tripplanapp.data.remote.ApiService
 import com.ersinberkealemdaroglu.tripplanapp.data.remote.repository.BlogDataModelRepositoryImp
+import com.ersinberkealemdaroglu.tripplanapp.data.remote.repository.GuideCategoryRepositoryImp
 import com.ersinberkealemdaroglu.tripplanapp.domain.repository.BlogDataModelRepository
+import com.ersinberkealemdaroglu.tripplanapp.domain.repository.GuideCategoryRepository
 import com.ersinberkealemdaroglu.tripplanapp.utils.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -41,6 +43,12 @@ class NetworkModule {
     @Singleton
     fun provideBlogDataRepository(apiService: ApiService): BlogDataModelRepository {
         return BlogDataModelRepositoryImp(apiService)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGuideCategory(apiService: ApiService) : GuideCategoryRepository{
+        return GuideCategoryRepositoryImp(apiService)
     }
 
 }

@@ -21,6 +21,10 @@
     <color name="detaild_city_title_color">#39414B</color>
     <color name="detail_button_background_color">#FF4760</color>
     <color name="category_title_color">#0048F0</color>
+    <color name="search_error_card_view_background">#FFF5F6</color>
+    <color name="search_error_text_color">#990014</color>
+    <color name="search_error_info_text_color">#FF4760</color>
+
 
 
 </resources>

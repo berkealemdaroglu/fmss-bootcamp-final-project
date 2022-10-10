@@ -216,6 +216,7 @@
             app:layout_constraintStart_toEndOf="@+id/hotelButton"
             app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homeRecyclerview"
             android:layout_width="match_parent"

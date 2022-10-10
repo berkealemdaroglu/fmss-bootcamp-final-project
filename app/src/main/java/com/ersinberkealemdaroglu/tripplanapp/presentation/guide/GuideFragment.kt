@@ -2,9 +2,12 @@ package com.ersinberkealemdaroglu.tripplanapp.presentation.guide
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -13,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentGuideBinding
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
+import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.guidecategoryadapter.GuideCategoryAdapter
 import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.needblogadapter.MightNeedTheseAdapter
 import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.toparticlesadapter.BlogDataTopArticlesAdapter
 import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.adapter.BookmarkAdapter
@@ -28,6 +32,7 @@ class GuideFragment : Fragment() {
     private lateinit var mightNeedTheseAdapter: MightNeedTheseAdapter
     private lateinit var blogDataTopArticlesAdapter: BlogDataTopArticlesAdapter
     private val bookmarkAdapter: BookmarkAdapter = BookmarkAdapter()
+    private val guideCategoryAdapter = GuideCategoryAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +53,8 @@ class GuideFragment : Fragment() {
         refreshData()
         loadingData()
         bookmarkAddLocalDB()
+        getAllGuideCategoryData()
+        searchBottomSheet()
     }
 
     private fun init() {
@@ -61,6 +68,13 @@ class GuideFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         guideBinding.topArticlesRecyclerview.adapter = blogDataTopArticlesAdapter
 
+        guideBinding.categoryRecyclerview.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        guideBinding.categoryRecyclerview.adapter = guideCategoryAdapter
+
+        guideBinding.mightNeedRecyclerview.isNestedScrollingEnabled.not()
+
+
     }
 
     private fun getBlogDataApi() {
@@ -72,6 +86,12 @@ class GuideFragment : Fragment() {
     private fun getTopArticlesDataApi() {
         guideFragmentViewModel.blogData.observe(viewLifecycleOwner) { topArticles ->
             blogDataTopArticlesAdapter.setBlogDataModel(topArticles)
+        }
+    }
+
+    private fun getAllGuideCategoryData() {
+        guideFragmentViewModel.guideCategory.observe(viewLifecycleOwner) { guideCategory ->
+            guideCategoryAdapter.setAllGuideCategory(guideCategory)
         }
     }
 
@@ -127,6 +147,36 @@ class GuideFragment : Fragment() {
             override fun onClick(travelModelItem: TravelModelItem) {
                 guideFragmentViewModel.addBookmarkLocalDB(travelModelItem)
                 bookmarkAdapter.notifyDataSetChanged()
+            }
+        })
+    }
+
+    private fun searchBottomSheet() {
+
+        guideBinding.searchBar.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                guideBinding.searchBar.setOnEditorActionListener { v, actionId, event ->
+                    if (actionId != EditorInfo.IME_ACTION_DONE) {
+                        val searchText = s.toString()
+                        val action =
+                            GuideFragmentDirections.actionGuideFragmentToSearchListFragment(
+                                searchText
+                            )
+                        findNavController().navigate(action)
+                        true
+                    } else {
+                        println("false")
+                        false
+                    }
+                }
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
             }
         })
     }

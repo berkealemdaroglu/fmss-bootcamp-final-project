@@ -8,19 +8,17 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentDetailBinding
-import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
-import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
-import com.ersinberkealemdaroglu.tripplanapp.utils.apiDownloadFromUri
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailFragment : Fragment() {
     private lateinit var detailBinding: FragmentDetailBinding
     private val navArgs: DetailFragmentArgs by navArgs()
-    private val detailFragmentViewModel :  DetailFragmentViewModel by viewModels()
+    private val detailFragmentViewModel: DetailFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,9 +31,10 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         setBlogDataByArgs()
         bookmarkAddLocalDB()
+        imageFull()
     }
 
     private fun setBlogDataByArgs() {
@@ -49,6 +48,18 @@ class DetailFragment : Fragment() {
             navArgs.let {
                 detailFragmentViewModel.addBookmarkLocalDB(navArgs.blogData)
                 Toast.makeText(context, "Added to Bookmark", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun imageFull() {
+        detailBinding.imageButton.setOnClickListener {
+            navArgs.let {
+                findNavController().navigate(
+                    DetailFragmentDirections.actionDetailFragmentToImageFullSize(
+                        navArgs.blogData
+                    )
+                )
             }
         }
     }

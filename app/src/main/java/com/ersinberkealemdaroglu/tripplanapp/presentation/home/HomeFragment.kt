@@ -52,6 +52,8 @@ class HomeFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         homeBinding.homeRecyclerview.adapter = allItemAdapter
 
+        homeBinding.homeRecyclerview.isNestedScrollingEnabled.not()
+
         concatAdapter()
         allItemObserve()
         flightObserve()
