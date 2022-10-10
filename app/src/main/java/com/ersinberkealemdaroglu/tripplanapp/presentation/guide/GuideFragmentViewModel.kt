@@ -30,7 +30,7 @@ class GuideFragmentViewModel @Inject constructor(
     val guideLoading: LiveData<Boolean> = _guideDataLoading
 
     private val _guideCategory = MutableLiveData<GuideCategory>()
-    val guideCategory : LiveData<GuideCategory> = _guideCategory
+    val guideCategory: LiveData<GuideCategory> = _guideCategory
 
     private var _blogData = MutableLiveData<TravelModel>()
     val blogData: LiveData<TravelModel>
@@ -66,8 +66,8 @@ class GuideFragmentViewModel @Inject constructor(
         }
     }
 
-    fun getAllGuideCategoryData(){
-        guideCategoryModelUseCase.getGuideCategory().enqueue(object : Callback<GuideCategory>{
+    fun getAllGuideCategoryData() {
+        guideCategoryModelUseCase.getGuideCategory().enqueue(object : Callback<GuideCategory> {
             override fun onResponse(call: Call<GuideCategory>, response: Response<GuideCategory>) {
                 _guideCategory.value = response.body()
             }

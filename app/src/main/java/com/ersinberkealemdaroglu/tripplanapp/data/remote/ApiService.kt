@@ -8,9 +8,9 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET("AllTravelList")
-    fun getBlogData() : Call<TravelModel>
+    fun getBlogData(): Call<TravelModel>
 
     @GET("GuideCategories")
-    fun getGuideCategory() : Call<GuideCategory>
+    fun getGuideCategory(): Call<GuideCategory>
 
 }

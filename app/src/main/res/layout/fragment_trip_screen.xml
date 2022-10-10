@@ -17,7 +17,7 @@
             style="@style/fragments_title_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Trip Plan"
+            android:text="@string/trip_plan"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,8 +44,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tripTitle"
-            app:tabMode="fixed">
-        </com.google.android.material.tabs.TabLayout>
+            app:tabMode="fixed" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

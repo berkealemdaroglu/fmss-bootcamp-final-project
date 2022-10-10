@@ -32,13 +32,13 @@
             android:layout_marginEnd="@dimen/_16sdp"
             android:layout_marginBottom="@dimen/_16sdp"
             android:background="@drawable/bottom_menu_background_curved"
+            app:elevation="0.5dp"
             app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
             app:itemRippleColor="@android:color/transparent"
             app:labelVisibilityMode="unlabeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:elevation="0.5dp"
             app:menu="@menu/bottom_menu" />
 
         <ImageView

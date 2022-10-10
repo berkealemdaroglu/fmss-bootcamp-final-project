@@ -37,7 +37,10 @@ class TopDestinationsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as TopDestinationsAdapterViewHolder).topDestinationBind(topDestinationsList[position], listener)
+        (holder as TopDestinationsAdapterViewHolder).topDestinationBind(
+            topDestinationsList[position],
+            listener
+        )
     }
 
     override fun getItemCount(): Int {

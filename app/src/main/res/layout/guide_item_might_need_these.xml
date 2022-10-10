@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="needTheseModel"
             type="com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem" />
@@ -33,8 +34,8 @@
                     android:id="@+id/needImages"
                     android:layout_width="@dimen/_96sdp"
                     android:layout_height="@dimen/_108sdp"
-                    android:scaleType="fitXY"
                     android:downloadImageUrl="@{needTheseModel.images[0].url}"
+                    android:scaleType="fitXY"
                     android:src="@drawable/guide_image"
                     tools:ignore="ContentDescription" />
 

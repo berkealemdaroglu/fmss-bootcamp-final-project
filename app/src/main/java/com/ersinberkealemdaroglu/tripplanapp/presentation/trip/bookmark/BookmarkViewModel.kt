@@ -12,7 +12,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class BookmarkViewModel @Inject constructor(private val databaseRepository: DatabaseRepository) : ViewModel() {
+class BookmarkViewModel @Inject constructor(private val databaseRepository: DatabaseRepository) :
+    ViewModel() {
 
     private val _travelModel = MutableLiveData<List<TravelModelItem>>()
     val travelModel: LiveData<List<TravelModelItem>>
@@ -28,9 +29,9 @@ class BookmarkViewModel @Inject constructor(private val databaseRepository: Data
         }
     }
 
-    fun deleteTravelModelLocalDB(id: String) {
+/*    fun deleteTravelModelLocalDB(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
             databaseRepository.delete(id)
         }
-    }
+    }*/
 }

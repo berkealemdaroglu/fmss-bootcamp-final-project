@@ -53,7 +53,8 @@ class GuideSeeAllFragment : Fragment() {
     }
 
     private fun pushMightNeedThisOnClickController() {
-        mightNeedTheseAdapter.setMightNeedThisOnClickListener(object : MightNeedTheseOnClickListener {
+        mightNeedTheseAdapter.setMightNeedThisOnClickListener(object :
+            MightNeedTheseOnClickListener {
             override fun onClick(travelItem: TravelModelItem) {
                 val action =
                     GuideSeeAllFragmentDirections.actionGuideSeeAllFragmentToDetailFragment(

@@ -59,7 +59,8 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchTitle"/>
+            app:layout_constraintTop_toBottomOf="@+id/searchTitle"
+            android:autofillHints="" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/topDestinationRV"
@@ -79,7 +80,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/source_sans_pro"
-            android:text="TOP DESTINATIONS"
+            android:text="@string/top_destinations"
             android:textColor="@color/search_title_color"
             android:textFontWeight="700"
             android:textSize="@dimen/_20ssp"
@@ -93,7 +94,7 @@
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_12sdp"
             android:fontFamily="@font/source_sans_pro"
-            android:text="Nearby Attractions"
+            android:text="@string/nearby_attractions"
             android:textAllCaps="true"
             android:textColor="@color/search_title_color"
             android:textFontWeight="600"

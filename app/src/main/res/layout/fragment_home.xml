@@ -6,6 +6,7 @@
     <data>
 
     </data>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
@@ -18,239 +19,238 @@
             tools:layout_editor_absoluteX="135dp"
             tools:layout_editor_absoluteY="1dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".presentation.HomeFragment">
-
-
-        <ImageView
-            android:id="@+id/homeTopImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/home_top_background"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/homeTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:lineHeight="@dimen/_38sdp"
-            android:text="@string/where_s_your_nnext_destination"
-            android:textColor="@color/home_title_color"
-            android:textFontWeight="700"
-            android:textSize="@dimen/_32ssp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="UnusedAttribute" />
-
-        <LinearLayout
-            android:layout_width="411dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="290dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/homeTopImage">
-
-            <Button
-                android:id="@+id/flightButton"
-                android:layout_width="@dimen/_79sdp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:drawableTop="@drawable/home_flight_icon"
-                android:fontFamily="@font/source_sans_pro_bold"
-                android:padding="1dp"
-                android:text="@string/flights"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/home_title_color"
-                android:textFontWeight="700"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute" />
-
-            <Button
-                android:id="@+id/hotelsButton"
-                android:layout_width="@dimen/_79sdp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:drawableTop="@drawable/home_hotel_icon"
-                android:fontFamily="@font/source_sans_pro_bold"
-                android:padding="1dp"
-                android:text="@string/hotels"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/home_title_color"
-                android:textFontWeight="700"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute" />
-
-            <Button
-                android:id="@+id/carsButton"
-                android:layout_width="@dimen/_79sdp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:drawableTop="@drawable/home_car_icon"
-                android:fontFamily="@font/source_sans_pro_bold"
-                android:padding="1dp"
-                android:text="@string/cars"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/home_title_color"
-                android:textFontWeight="700"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute" />
-
-            <Button
-                android:id="@+id/taxiButton"
-                android:layout_width="@dimen/_79sdp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:drawableTop="@drawable/home_taxi_icon"
-                android:fontFamily="@font/source_sans_pro_bold"
-                android:padding="1dp"
-                android:text="@string/taxi"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/home_title_color"
-                android:textFontWeight="700"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute" />
-
-        </LinearLayout>
+                tools:context=".presentation.HomeFragment">
 
 
+                <ImageView
+                    android:id="@+id/homeTopImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/home_top_background"
+                    tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/dealsTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:fontFamily="@font/source_sans_pro"
-            android:textColor="@color/search_title_color"
-            android:textSize="@dimen/_20ssp"
-            android:textFontWeight="600"
-            android:gravity="center"
-            android:text="DEALS"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeTopImage" />
+                <TextView
+                    android:id="@+id/homeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="140dp"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:lineHeight="@dimen/_38sdp"
+                    android:text="@string/where_s_your_nnext_destination"
+                    android:textColor="@color/home_title_color"
+                    android:textFontWeight="700"
+                    android:textSize="@dimen/_32ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="UnusedAttribute" />
 
-        <Button
-            android:id="@+id/hotelButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/transparent"
-            android:text="Hotels"
-            android:textColor="@color/nearby_item_text_background_color"
-            android:textSize="@dimen/_10ssp"
-            app:layout_constraintStart_toEndOf="@+id/flightsButton"
-            app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
+                <LinearLayout
+                    android:layout_width="411dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="290dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/homeTopImage">
 
-        <Button
-            android:id="@+id/flightsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/transparent"
-            android:text="Flights"
-            android:textColor="@color/nearby_item_text_background_color"
-            android:textSize="@dimen/_10ssp"
-            app:layout_constraintStart_toEndOf="@+id/allButton"
-            app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
+                    <Button
+                        android:id="@+id/flightButton"
+                        android:layout_width="@dimen/_79sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@android:color/transparent"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/home_flight_icon"
+                        android:fontFamily="@font/source_sans_pro_bold"
+                        android:padding="1dp"
+                        android:text="@string/flights"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/home_title_color"
+                        android:textFontWeight="700"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute" />
 
-        <Button
-            android:id="@+id/allButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/transparent"
-            android:text="All"
-            android:textColor="@color/nearby_item_text_background_color"
-            android:textSize="@dimen/_10ssp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
+                    <Button
+                        android:id="@+id/hotelsButton"
+                        android:layout_width="@dimen/_79sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@android:color/transparent"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/home_hotel_icon"
+                        android:fontFamily="@font/source_sans_pro_bold"
+                        android:padding="1dp"
+                        android:text="@string/hotels"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/home_title_color"
+                        android:textFontWeight="700"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute" />
 
-        <Button
-            android:id="@+id/transportButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/transparent"
-            android:text="Transports"
-            android:textColor="@color/nearby_item_text_background_color"
-            android:textSize="@dimen/_10ssp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/hotelButton"
-            app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
+                    <Button
+                        android:id="@+id/carsButton"
+                        android:layout_width="@dimen/_79sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@android:color/transparent"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/home_car_icon"
+                        android:fontFamily="@font/source_sans_pro_bold"
+                        android:padding="1dp"
+                        android:text="@string/cars"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/home_title_color"
+                        android:textFontWeight="700"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute" />
+
+                    <Button
+                        android:id="@+id/taxiButton"
+                        android:layout_width="@dimen/_79sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@android:color/transparent"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/home_taxi_icon"
+                        android:fontFamily="@font/source_sans_pro_bold"
+                        android:padding="1dp"
+                        android:text="@string/taxi"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/home_title_color"
+                        android:textFontWeight="700"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ButtonStyle,KeyboardInaccessibleWidget,ObsoleteLayoutParam,UnusedAttribute" />
+
+                </LinearLayout>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/homeRecyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_110sdp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/allButton"
-            tools:listitem="@layout/deals_item" />
+                <TextView
+                    android:id="@+id/dealsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:gravity="center"
+                    android:text="@string/deals"
+                    android:textColor="@color/search_title_color"
+                    android:textFontWeight="600"
+                    android:textSize="@dimen/_20ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeTopImage" />
 
-        <ImageView
-            android:id="@+id/ghostImage"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_60sdp"
-            android:background="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.476"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeRecyclerview"
-            tools:ignore="ContentDescription" />
+                <Button
+                    android:id="@+id/hotelButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/hotels"
+                    android:textColor="@color/nearby_item_text_background_color"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintStart_toEndOf="@+id/flightsButton"
+                    app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
 
-        <ProgressBar
-            android:id="@+id/homeLoading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/homeRecyclerview" />
+                <Button
+                    android:id="@+id/flightsButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/flights"
+                    android:textColor="@color/nearby_item_text_background_color"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintStart_toEndOf="@+id/allButton"
+                    app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
+
+                <Button
+                    android:id="@+id/allButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/all"
+                    android:textColor="@color/nearby_item_text_background_color"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
+
+                <Button
+                    android:id="@+id/transportButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/transports"
+                    android:textColor="@color/nearby_item_text_background_color"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/hotelButton"
+                    app:layout_constraintTop_toBottomOf="@+id/dealsTitle" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/homeRecyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_110sdp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/allButton"
+                    tools:listitem="@layout/deals_item" />
+
+                <ImageView
+                    android:id="@+id/ghostImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_60sdp"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.476"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeRecyclerview"
+                    tools:ignore="ContentDescription" />
+
+                <ProgressBar
+                    android:id="@+id/homeLoading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/homeRecyclerview" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

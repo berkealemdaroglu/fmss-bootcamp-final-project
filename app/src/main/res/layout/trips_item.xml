@@ -60,32 +60,32 @@
             <TextView
                 android:id="@+id/timeLeft"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/_100sdp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_210sdp"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:drawablePadding="@dimen/_4sdp"
                 android:fontFamily="@font/source_sans_pro"
-                android:textColor="@color/home_title_color"
-                android:textSize="@dimen/_13ssp"
                 android:gravity="center"
                 android:padding="@dimen/_4sdp"
-                android:drawablePadding="@dimen/_4sdp"
-                android:drawableStart="@drawable/trip_item_clock_icon"
-                android:layout_height="wrap_content"
-                android:text="5 Days Left" />
+                android:text="@string/_5_items"
+                android:textColor="@color/home_title_color"
+                android:textSize="@dimen/_13ssp"
+                app:drawableStartCompat="@drawable/trip_item_clock_icon" />
 
             <TextView
                 android:id="@+id/tripsItem"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/_100sdp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:drawablePadding="@dimen/_4sdp"
                 android:fontFamily="@font/source_sans_pro"
-                android:textColor="@color/home_title_color"
-                android:textSize="@dimen/_13ssp"
                 android:gravity="center"
                 android:padding="@dimen/_4sdp"
-                android:drawablePadding="@dimen/_4sdp"
-                android:drawableStart="@drawable/tip_items_icon"
-                android:layout_height="wrap_content"
-                android:text="5 Days Left" />
+                android:text="@string/_5_days_left"
+                android:textColor="@color/home_title_color"
+                android:textSize="@dimen/_13ssp"
+                app:drawableStartCompat="@drawable/tip_items_icon" />
 
         </androidx.cardview.widget.CardView>
     </com.google.android.material.card.MaterialCardView>

@@ -6,7 +6,6 @@ import com.ersinberkealemdaroglu.tripplanapp.BR
 import com.ersinberkealemdaroglu.tripplanapp.databinding.GuideItemMightNeedTheseBinding
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
-import com.ersinberkealemdaroglu.tripplanapp.utils.apiDownloadFromUri
 
 class BlogDataAdapterViewHolder(private val blogDataBinding: ViewDataBinding) :
     RecyclerView.ViewHolder(blogDataBinding.root) {

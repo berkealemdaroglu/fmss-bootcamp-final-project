@@ -2,20 +2,16 @@ package com.ersinberkealemdaroglu.tripplanapp
 
 import android.os.Bundle
 import android.view.WindowManager
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.ersinberkealemdaroglu.tripplanapp.databinding.ActivityMainBinding
-import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.GuideFragmentViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    private val guideFragmentViewModel: GuideFragmentViewModel by viewModels()
     private lateinit var mainActivityBinding: ActivityMainBinding
     private lateinit var bottomMenuNavigationView: BottomNavigationView
 

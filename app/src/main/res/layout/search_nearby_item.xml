@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="nearbyItem"
             type="com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem" />
@@ -13,87 +14,87 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_160sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/localEvents"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/_5sdp"
-        app:cardCornerRadius="6dp">
-
-        <ImageView
-            android:id="@+id/nearbyImages"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:downloadImageUrl="@{nearbyItem.images[0].url}"
-            android:scaleType="centerCrop"
-            android:src="@drawable/nearby_item_test_image"
-            tools:ignore="ContentDescription"/>
+            android:layout_height="@dimen/_160sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/cityText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_minus15sdp"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:text="@{nearbyItem.city}"
-            android:textAllCaps="false"
-            android:textColor="@color/top_destinations_text_color"
-            android:textFontWeight="700"
-            android:textSize="@dimen/_20ssp"
-            tools:text="Tokyo" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/localEvents"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_5sdp"
+                app:cardCornerRadius="6dp">
 
-        <TextView
-            android:id="@+id/countryText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/source_sans_pro"
-            android:text="@{nearbyItem.country}"
-            android:textColor="@color/top_destinations_text_color"
-            android:textFontWeight="600"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:textSize="@dimen/_16ssp"
-            tools:text="Japan" />
+                <ImageView
+                    android:id="@+id/nearbyImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:downloadImageUrl="@{nearbyItem.images[0].url}"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/nearby_item_test_image"
+                    tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_14sdp"
-            android:layout_marginTop="@dimen/_14sdp"
-            android:textSize="@dimen/_14ssp"
-            android:textColor="@color/top_destinations_text_color"
-            android:text="@{nearbyItem.category}"
-            tools:text="HOTEL"
-            android:gravity="center"
-            android:textFontWeight="600"
-            android:textAllCaps="true"
-            android:background="@drawable/search_nearby_text_background_radius"
-            android:fontFamily="@font/source_sans_pro" />
+                <TextView
+                    android:id="@+id/cityText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_minus15sdp"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:text="@{nearbyItem.city}"
+                    android:textAllCaps="false"
+                    android:textColor="@color/top_destinations_text_color"
+                    android:textFontWeight="700"
+                    android:textSize="@dimen/_20ssp"
+                    tools:text="Tokyo" />
 
-        <ImageButton
-            android:id="@+id/bookmarkButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_9sdp"
-            android:layout_marginStart="@dimen/_270sdp"
-            android:background="@android:color/transparent"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:src="@drawable/ic_bookmark_icon"
-            tools:ignore="ContentDescription" />
+                <TextView
+                    android:id="@+id/countryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:text="@{nearbyItem.country}"
+                    android:textColor="@color/top_destinations_text_color"
+                    android:textFontWeight="600"
+                    android:textSize="@dimen/_16ssp"
+                    tools:text="Japan" />
 
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:background="@drawable/search_nearby_text_background_radius"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:gravity="center"
+                    android:text="@{nearbyItem.category}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/top_destinations_text_color"
+                    android:textFontWeight="600"
+                    android:textSize="@dimen/_14ssp"
+                    tools:text="HOTEL" />
 
-    </com.google.android.material.card.MaterialCardView>
+                <ImageButton
+                    android:id="@+id/bookmarkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_270sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:background="@android:color/transparent"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:src="@drawable/ic_bookmark_icon"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.cardview.widget.CardView>
+
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </layout>

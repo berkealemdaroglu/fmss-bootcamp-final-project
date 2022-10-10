@@ -157,7 +157,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun loadingData(){
+    private fun loadingData() {
         homeFragmentViewModel.homeLoading.observe(viewLifecycleOwner) { loading ->
             loading?.let {
                 homeBinding.apply {

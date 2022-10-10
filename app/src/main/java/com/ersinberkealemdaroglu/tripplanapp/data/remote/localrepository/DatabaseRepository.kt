@@ -20,9 +20,9 @@ class DatabaseRepository @Inject constructor(private val travelAppDao: TravelApp
         return travelAppDao.exists(id)
     }
 
-    suspend fun delete(id: String) {
+/*    suspend fun delete(id: String) {
         travelAppDao.delete(id)
-    }
+    }*/
 
     suspend fun insertTripModel(tripModel: TripModel) {
         travelAppDao.insertTripModel(tripModel)
@@ -32,12 +32,12 @@ class DatabaseRepository @Inject constructor(private val travelAppDao: TravelApp
         return travelAppDao.getAllTripModel()
     }
 
-    suspend fun getTripModel(id: Int): TripModel {
+/*    suspend fun getTripModel(id: Int): TripModel {
         return travelAppDao.getTripModel(id)
     }
 
     suspend fun tripModelExists(id: Int): Boolean {
         return travelAppDao.tripModelExists(id)
-    }
+    }*/
 
 }

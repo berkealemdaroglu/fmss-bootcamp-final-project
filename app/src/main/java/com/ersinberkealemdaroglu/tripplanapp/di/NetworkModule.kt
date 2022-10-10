@@ -47,7 +47,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideGuideCategory(apiService: ApiService) : GuideCategoryRepository{
+    fun provideGuideCategory(apiService: ApiService): GuideCategoryRepository {
         return GuideCategoryRepositoryImp(apiService)
     }
 

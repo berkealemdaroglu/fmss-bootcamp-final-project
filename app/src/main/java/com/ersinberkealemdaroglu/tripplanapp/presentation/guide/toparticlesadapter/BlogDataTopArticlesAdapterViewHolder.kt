@@ -12,7 +12,10 @@ import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
 class BlogDataTopArticlesAdapterViewHolder(private val topArticlesBinding: ViewDataBinding) :
     RecyclerView.ViewHolder(topArticlesBinding.root) {
 
-    fun topArticlesBind(blogDataItem: TravelModelItem, bookmarkOnItemClickListener: BookmarkOnItemClickListener?) {
+    fun topArticlesBind(
+        blogDataItem: TravelModelItem,
+        bookmarkOnItemClickListener: BookmarkOnItemClickListener?
+    ) {
         topArticlesBinding as TopPickArticlesItemBinding
         topArticlesBinding.setVariable(BR.blogDataItem, blogDataItem)
 

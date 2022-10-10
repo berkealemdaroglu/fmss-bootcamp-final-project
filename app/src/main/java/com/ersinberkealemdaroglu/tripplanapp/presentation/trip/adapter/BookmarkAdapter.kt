@@ -47,12 +47,12 @@ class BookmarkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    fun setBookmarkItemOnClickListener(bookmarkOnItemClickListener: BookmarkOnItemClickListener) {
+/*    fun setBookmarkItemOnClickListener(bookmarkOnItemClickListener: BookmarkOnItemClickListener) {
         this.bookmarkOnItemClickListener = bookmarkOnItemClickListener
     }
 
     fun setBookmarkOnClickListener(listener: MightNeedTheseOnClickListener) {
         this.mightNeedTheseOnClickListener = listener
-    }
+    }*/
 
 }

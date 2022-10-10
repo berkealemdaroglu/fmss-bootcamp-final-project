@@ -41,32 +41,32 @@
 
                 <TextView
                     android:id="@+id/cityText"
-                    android:layout_gravity="center"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textAllCaps="false"
-                    android:fontFamily="@font/source_sans_pro_bold"
-                    android:textSize="@dimen/_20ssp"
-                    android:textFontWeight="700"
+                    android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_minus15sdp"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:gravity="center"
+                    android:text="@{topDestinationItem.city}"
+                    android:textAllCaps="false"
                     android:textColor="@color/top_destinations_text_color"
-                    tools:text="Tokyo"
-                    android:text="@{topDestinationItem.city}" />
+                    android:textFontWeight="700"
+                    android:textSize="@dimen/_20ssp"
+                    tools:text="Tokyo" />
 
                 <TextView
                     android:id="@+id/countryText"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:gravity="center"
-                    android:fontFamily="@font/source_sans_pro"
-                    tools:text="Japan"
-                    android:text="@{topDestinationItem.country}"
                     android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:gravity="center"
+                    android:text="@{topDestinationItem.country}"
                     android:textColor="@color/top_destinations_text_color"
                     android:textFontWeight="600"
-                    android:textSize="@dimen/_16ssp" />
+                    android:textSize="@dimen/_16ssp"
+                    tools:text="Japan" />
 
 
             </androidx.cardview.widget.CardView>

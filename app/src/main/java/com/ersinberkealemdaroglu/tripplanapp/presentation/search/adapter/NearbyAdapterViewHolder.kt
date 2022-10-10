@@ -7,7 +7,6 @@ import com.ersinberkealemdaroglu.tripplanapp.databinding.SearchNearbyItemBinding
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
 import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
-import com.ersinberkealemdaroglu.tripplanapp.utils.SharedPreferences
 
 class NearbyAdapterViewHolder(private val nearbyBinding: ViewDataBinding) :
     RecyclerView.ViewHolder(nearbyBinding.root) {

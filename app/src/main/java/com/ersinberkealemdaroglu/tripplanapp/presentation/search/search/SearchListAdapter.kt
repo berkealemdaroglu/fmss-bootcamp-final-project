@@ -18,12 +18,15 @@ class SearchListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private lateinit var searchListBinding: ViewDataBinding
     private var travelModel: TravelModel = TravelModel()
     private val searchListArray = ArrayList<TravelModelItem>()
-    private var searchOnClickListener : MightNeedTheseOnClickListener? = null
+    private var searchOnClickListener: MightNeedTheseOnClickListener? = null
 
 
     class SearchListAdapterViewHolder(private val searchListBinding: ViewDataBinding) :
         RecyclerView.ViewHolder(searchListBinding.root) {
-        fun searchListBind(travelModelItem: TravelModelItem, mightNeedTheseOnClickListener: MightNeedTheseOnClickListener) {
+        fun searchListBind(
+            travelModelItem: TravelModelItem,
+            mightNeedTheseOnClickListener: MightNeedTheseOnClickListener
+        ) {
             searchListBinding as SearchNearbyItemBinding
             searchListBinding.setVariable(BR.nearbyItem, travelModelItem)
             searchListBinding.nearbyImages.setOnClickListener {
@@ -38,9 +41,15 @@ class SearchListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             when {
                 search.description!!.lowercase(Locale.ROOT)
                     .contains(searchText) -> searchListArray.add(search)
-                search.title!!.lowercase(Locale.ROOT).contains(searchText) -> searchListArray.add(search)
-                search.country!!.lowercase(Locale.ROOT).contains(searchText) -> searchListArray.add(search)
-                search.city!!.lowercase(Locale.ROOT).contains(searchText) -> searchListArray.add(search)
+                search.title!!.lowercase(Locale.ROOT).contains(searchText) -> searchListArray.add(
+                    search
+                )
+                search.country!!.lowercase(Locale.ROOT).contains(searchText) -> searchListArray.add(
+                    search
+                )
+                search.city!!.lowercase(Locale.ROOT).contains(searchText) -> searchListArray.add(
+                    search
+                )
             }
         }
     }

@@ -1,11 +1,9 @@
 package com.ersinberkealemdaroglu.tripplanapp.presentation.trip
 
-import android.content.ContextWrapper
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
@@ -17,7 +15,6 @@ import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.tripbookmark.Trip
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.channels.ticker
 
 @AndroidEntryPoint
 class TripScreenFragment : Fragment() {

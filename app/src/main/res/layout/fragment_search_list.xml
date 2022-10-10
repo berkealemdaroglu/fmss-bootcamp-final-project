@@ -34,13 +34,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:drawableEnd="@drawable/search_error_icon"
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:gravity="center"
                     android:padding="@dimen/_10sdp"
-                    android:text="What you were looking for was not found."
+                    android:text="@string/what_you_were_looking_for_was_not_found"
                     android:textColor="@color/search_error_text_color"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_12ssp"
+                    app:drawableEndCompat="@drawable/search_error_icon" />
 
                 <Button
                     android:id="@+id/restartSearchButton"
@@ -51,7 +51,7 @@
                     android:fontFamily="@font/source_sans_pro_bold"
                     android:gravity="center"
                     android:padding="@dimen/_6sdp"
-                    android:text="Click to search again!"
+                    android:text="@string/click_to_search_again"
                     android:textAllCaps="false"
                     android:textColor="@color/search_error_info_text_color"
                     android:textSize="@dimen/_14ssp"

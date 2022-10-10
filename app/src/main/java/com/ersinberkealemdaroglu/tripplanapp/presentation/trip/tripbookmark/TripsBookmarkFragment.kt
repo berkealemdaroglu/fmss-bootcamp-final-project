@@ -17,8 +17,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class TripsBookmarkFragment : Fragment() {
 
-    private lateinit var tripsBinding : FragmentTripsBinding
-    private val tripBookmarkViewModel : TripBookmarkViewModel by viewModels()
+    private lateinit var tripsBinding: FragmentTripsBinding
+    private val tripBookmarkViewModel: TripBookmarkViewModel by viewModels()
     private val tripBookmarkAdapter = TripBookmarkAdapter()
 
     override fun onCreateView(
@@ -38,21 +38,21 @@ class TripsBookmarkFragment : Fragment() {
         getAllTripModel()
     }
 
-    private fun init(){
+    private fun init() {
         tripsBinding.tripRecyclerview.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         tripsBinding.tripRecyclerview.adapter = tripBookmarkAdapter
     }
 
-    private fun tripBottomSheet(){
+    private fun tripBottomSheet() {
         tripsBinding.floatingActionButton.setOnClickListener {
             val tripBottomSheet = TripBottomSheet()
             tripBottomSheet.show(childFragmentManager, "TAG1")
         }
     }
 
-    private fun getAllTripModel(){
-        tripBookmarkViewModel.getAllTripModelLocalDB().observe(viewLifecycleOwner){ tripModel ->
+    private fun getAllTripModel() {
+        tripBookmarkViewModel.getAllTripModelLocalDB().observe(viewLifecycleOwner) { tripModel ->
             tripBookmarkAdapter.setTripModel(tripModel)
             println("osman 2" + tripModel.size)
         }

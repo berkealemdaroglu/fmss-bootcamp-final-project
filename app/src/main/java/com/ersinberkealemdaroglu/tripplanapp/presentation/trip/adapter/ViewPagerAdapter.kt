@@ -1,7 +1,5 @@
 package com.ersinberkealemdaroglu.tripplanapp.presentation.trip.adapter
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 

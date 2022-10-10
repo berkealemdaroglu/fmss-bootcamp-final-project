@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="tripData"
             type="com.ersinberkealemdaroglu.tripplanapp.domain.model.tripmodel.TripModel" />
@@ -20,8 +22,9 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="50dp"
+            android:autofillHints=""
             android:ems="10"
-            android:hint="Country"
+            android:hint="@string/country"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -35,8 +38,9 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="50dp"
+            android:autofillHints=""
             android:ems="10"
-            android:hint="City"
+            android:hint="@string/city"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -47,11 +51,11 @@
             android:id="@+id/addBookmarkButton"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="4dp"
             android:backgroundTint="@color/detail_button_background_color"
             android:padding="@dimen/_10sdp"
-            android:text="Add Trip"
+            android:text="@string/add_trip"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -26,14 +26,15 @@
             android:id="@+id/floating_action_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="104dp"
+            android:layout_marginBottom="@dimen/_100sdp"
             android:background="@drawable/bottom_menu_background_curved"
             android:backgroundTint="@color/detail_button_background_color"
             android:padding="@dimen/_18sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/plus_button_icon" />
+            app:srcCompat="@drawable/plus_button_icon"
+            android:contentDescription="@string/float_action_button" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

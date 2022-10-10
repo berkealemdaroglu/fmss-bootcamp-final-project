@@ -19,7 +19,6 @@ import com.ersinberkealemdaroglu.tripplanapp.presentation.search.SearchViewModel
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 
 @AndroidEntryPoint
 class SearchListFragment : BottomSheetDialogFragment() {
@@ -56,22 +55,27 @@ class SearchListFragment : BottomSheetDialogFragment() {
         searchViewModel.getBlogData.observe(viewLifecycleOwner) { data ->
             navArgs.let {
                 searchListAdapter.setSearchItemList(data, it.searchString)
-                searchListAdapter.setSearchOnClickListener(object : MightNeedTheseOnClickListener{
+                searchListAdapter.setSearchOnClickListener(object : MightNeedTheseOnClickListener {
                     override fun onClick(travelItem: TravelModelItem) {
-                        val action = SearchListFragmentDirections.actionSearchListFragmentToDetailFragment(travelItem)
+                        val action =
+                            SearchListFragmentDirections.actionSearchListFragmentToDetailFragment(
+                                travelItem
+                            )
                         findNavController().navigate(action)
                     }
                 })
             }
 
-            Looper.myLooper()?.let {Handler(it).postDelayed({
-                if (searchListBinding.searchListRecyclerview.isEmpty()) {
-                    searchListBinding.searchErrorCard.visibility = View.VISIBLE
-                    searchListBinding.restartSearchButton.setOnClickListener {
-                        dismiss()
+            Looper.myLooper()?.let {
+                Handler(it).postDelayed({
+                    if (searchListBinding.searchListRecyclerview.isEmpty()) {
+                        searchListBinding.searchErrorCard.visibility = View.VISIBLE
+                        searchListBinding.restartSearchButton.setOnClickListener {
+                            dismiss()
+                        }
                     }
-                }
-            }, 1000)}
+                }, 1000)
+            }
         }
 
     }

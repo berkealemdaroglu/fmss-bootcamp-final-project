@@ -13,8 +13,8 @@ fun ImageView.apiDownloadFromUri(url: String?) {
             .load(url)
             .apply(
                 RequestOptions()
-                .placeholder(R.drawable.loading_animation_items)
-                .error(R.drawable.error_icon)
+                    .placeholder(R.drawable.loading_animation_items)
+                    .error(R.drawable.error_icon)
             )
             .into(this)
     }

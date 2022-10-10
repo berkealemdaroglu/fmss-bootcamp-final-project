@@ -13,4 +13,21 @@
     <string name="top_pick_articles">Top-pick articles</string>
     <string name="sell_all"><u>See all</u></string>
     <string name="where_next">Where Next?</string>
+    <string name="top_destinations">TOP DESTINATIONS</string>
+    <string name="nearby_attractions">Nearby Attractions</string>
+    <string name="full_size_image">full size image</string>
+    <string name="add_bookmark">Add Bookmark</string>
+    <string name="a_country_a_city_a_place_or_anything">A country, a city, a place… or anything</string>
+    <string name="deals">DEALS</string>
+    <string name="all">All</string>
+    <string name="transports">Transports</string>
+    <string name="click_to_search_again">Click to search again!</string>
+    <string name="what_you_were_looking_for_was_not_found">What you were looking for was not found.</string>
+    <string name="trip_plan">Trip Plan</string>
+    <string name="float_action_button">float action button</string>
+    <string name="country">Country</string>
+    <string name="add_trip">Add Trip</string>
+    <string name="city">City</string>
+    <string name="_5_days_left">5 Days Left</string>
+    <string name="_5_items">5 items</string>
 </resources>

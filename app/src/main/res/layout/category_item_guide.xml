@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-            <variable
-                name="guideCategory"
-                type="com.ersinberkealemdaroglu.tripplanapp.domain.model.guidecategory.GuideCategoryItem" />
+
+        <variable
+            name="guideCategory"
+            type="com.ersinberkealemdaroglu.tripplanapp.domain.model.guidecategory.GuideCategoryItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,17 +19,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_margin="@dimen/_3sdp"
             android:background="@drawable/category_button_shape"
             android:fontFamily="@font/source_sans_pro_bold"
             android:text="@{guideCategory.title}"
-            android:layout_margin="@dimen/_3sdp"
             android:textColor="@color/category_title_color"
             app:backgroundTint="@null"
             app:icon="@drawable/category_test_icon"
-            tools:text="Guide Category"
             app:iconTint="@color/category_title_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Guide Category" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
