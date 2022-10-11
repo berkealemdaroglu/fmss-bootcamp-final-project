@@ -13,4 +13,14 @@
         <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Splash Screen -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+
+        <item name="windowSplashScreenBackground">@color/ic_logo</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/travel_app_splash_logo</item>
+        <item name="windowSplashScreenAnimationDuration">200</item>
+
+        <item name="postSplashScreenTheme">@style/Theme.TripPlanApp</item>
+    </style>
 </resources>

@@ -25,6 +25,7 @@
     <color name="search_error_card_view_background">#FFF5F6</color>
     <color name="search_error_text_color">#990014</color>
     <color name="search_error_info_text_color">#FF4760</color>
+    <color name="ic_logo">#fff</color>
 
 
 

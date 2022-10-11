@@ -85,8 +85,7 @@
             android:textFontWeight="700"
             android:textSize="@dimen/_20ssp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchBar"
-            tools:ignore="UnusedAttribute" />
+            app:layout_constraintTop_toBottomOf="@+id/searchBar" />
 
         <TextView
             android:id="@+id/textView5"
@@ -101,8 +100,7 @@
             android:textFontWeight="600"
             android:textSize="@dimen/_20ssp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topDestinationRV"
-            tools:ignore="UnusedAttribute" />
+            app:layout_constraintTop_toBottomOf="@+id/topDestinationRV" />
 
         <ImageView
             android:id="@+id/ghostImage"

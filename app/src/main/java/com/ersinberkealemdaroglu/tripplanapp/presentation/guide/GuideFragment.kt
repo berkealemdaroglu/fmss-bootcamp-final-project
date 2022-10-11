@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentGuideBinding
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModel
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
 import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.guidecategoryadapter.GuideCategoryAdapter
 import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.needblogadapter.MightNeedTheseAdapter
@@ -35,6 +36,7 @@ class GuideFragment : Fragment() {
     private lateinit var blogDataTopArticlesAdapter: BlogDataTopArticlesAdapter
     private val bookmarkAdapter: BookmarkAdapter = BookmarkAdapter()
     private val guideCategoryAdapter = GuideCategoryAdapter()
+    private val travelModel = TravelModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -149,6 +151,7 @@ class GuideFragment : Fragment() {
             @SuppressLint("NotifyDataSetChanged")
             override fun onClick(travelModelItem: TravelModelItem) {
                 guideFragmentViewModel.addBookmarkLocalDB(travelModelItem)
+                bookmarkAdapter.setBookmarkData(travelModel)
                 bookmarkAdapter.notifyDataSetChanged()
             }
         })
@@ -184,10 +187,11 @@ class GuideFragment : Fragment() {
         })
     }
 
-    private fun bottomNavigationVisible(){
+    private fun bottomNavigationVisible() {
         //Bottom Navigation VISIBLE
         val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        val navbarBlur = requireActivity().findViewById<ImageView>(R.id.background_blur_bottom_navigation)
+        val navbarBlur =
+            requireActivity().findViewById<ImageView>(R.id.background_blur_bottom_navigation)
         navBar.visibility = View.VISIBLE
         navbarBlur.visibility = View.VISIBLE
     }

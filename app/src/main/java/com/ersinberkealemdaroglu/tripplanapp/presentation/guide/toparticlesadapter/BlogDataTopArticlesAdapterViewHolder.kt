@@ -1,5 +1,6 @@
 package com.ersinberkealemdaroglu.tripplanapp.presentation.guide.toparticlesadapter
 
+import android.annotation.SuppressLint
 import androidx.databinding.ViewDataBinding
 import androidx.databinding.library.baseAdapters.BR
 import androidx.navigation.Navigation
@@ -12,6 +13,7 @@ import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
 class BlogDataTopArticlesAdapterViewHolder(private val topArticlesBinding: ViewDataBinding) :
     RecyclerView.ViewHolder(topArticlesBinding.root) {
 
+    @SuppressLint("ResourceAsColor")
     fun topArticlesBind(
         blogDataItem: TravelModelItem,
         bookmarkOnItemClickListener: BookmarkOnItemClickListener?
@@ -26,6 +28,7 @@ class BlogDataTopArticlesAdapterViewHolder(private val topArticlesBinding: ViewD
 
         topArticlesBinding.topPickBookmarkButton.setOnClickListener {
             bookmarkOnItemClickListener?.onClick(blogDataItem)
+
         }
 
     }

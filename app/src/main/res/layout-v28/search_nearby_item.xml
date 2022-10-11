@@ -52,8 +52,7 @@
                     android:textColor="@color/top_destinations_text_color"
                     android:textFontWeight="700"
                     android:textSize="@dimen/_20ssp"
-                    tools:text="Tokyo"
-                    tools:ignore="UnusedAttribute" />
+                    tools:text="Tokyo" />
 
                 <TextView
                     android:id="@+id/countryText"
@@ -66,8 +65,7 @@
                     android:textColor="@color/top_destinations_text_color"
                     android:textFontWeight="600"
                     android:textSize="@dimen/_16ssp"
-                    tools:text="Japan"
-                    tools:ignore="UnusedAttribute" />
+                    tools:text="Japan" />
 
                 <TextView
                     android:id="@+id/textView7"
@@ -83,8 +81,7 @@
                     android:textColor="@color/top_destinations_text_color"
                     android:textFontWeight="600"
                     android:textSize="@dimen/_14ssp"
-                    tools:text="HOTEL"
-                    tools:ignore="UnusedAttribute" />
+                    tools:text="HOTEL" />
 
                 <ImageButton
                     android:id="@+id/bookmarkButton"

@@ -1,6 +1,5 @@
 package com.ersinberkealemdaroglu.tripplanapp.presentation.home
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,27 +8,21 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.ConcatAdapter
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentHomeBinding
-import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.alladapter.AllItemAdapter
-import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.flightsadapter.FlightAdapter
-import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.hotelsadapter.HotelsAdapter
-import com.ersinberkealemdaroglu.tripplanapp.presentation.home.adapter.transportationsadapter.TransportationsAdapter
+import com.ersinberkealemdaroglu.tripplanapp.presentation.home.viewpagerfragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var homeBinding: FragmentHomeBinding
-    private lateinit var allItemAdapter: AllItemAdapter
-    private lateinit var flightAdapter: FlightAdapter
-    private lateinit var hotelsAdapter: HotelsAdapter
-    private lateinit var transportationsAdapter: TransportationsAdapter
-    private val homeFragmentViewModel: HomeFragmentViewModel by viewModels()
-    private var concatAdapter = ConcatAdapter()
+    private lateinit var viewPager: ViewPager2
+    private lateinit var tabLayout: TabLayout
+    private lateinit var dealsViewPagerAdapter: DealsViewPagerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,89 +39,28 @@ class HomeFragment : Fragment() {
     }
 
     private fun init() {
-        allItemAdapter = AllItemAdapter()
-        flightAdapter = FlightAdapter()
-        hotelsAdapter = HotelsAdapter()
-        transportationsAdapter = TransportationsAdapter()
-        homeBinding.homeRecyclerview.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        homeBinding.homeRecyclerview.adapter = allItemAdapter
+        viewPager = homeBinding.homeViewPager
 
-        homeBinding.homeRecyclerview.isNestedScrollingEnabled.not()
-
-        concatAdapter()
-        allItemObserve()
-        flightObserve()
-        hotelsObserve()
-        transportObserve()
         staticHomeButtons()
-        refreshData()
-        loadingData()
         bottomNavigationVisible()
+        dealsViewPagerSetup()
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    private fun allItemObserve() {
-        homeFragmentViewModel.getBlogData.observe(viewLifecycleOwner) { allItem ->
-            allItemAdapter.setAllData(allItem)
-            concatAdapter.notifyDataSetChanged()
-            homeBinding.allButton.setOnClickListener {
-                concatAdapter.addAdapter(allItemAdapter)
-                concatAdapter.notifyDataSetChanged()
-                concatAdapter.removeAdapter(flightAdapter)
-                concatAdapter.removeAdapter(transportationsAdapter)
-                concatAdapter.removeAdapter(hotelsAdapter)
-            }
-        }
-    }
+    private fun dealsViewPagerSetup() {
+        dealsViewPagerAdapter = DealsViewPagerAdapter(childFragmentManager, lifecycle)
+        dealsViewPagerAdapter.setFragmentsItem(DealsAllFragment(), "All")
+        dealsViewPagerAdapter.setFragmentsItem(DealsFlightFragment(), "Flight")
+        dealsViewPagerAdapter.setFragmentsItem(DealsHotelFragment(), "Hotels")
+        dealsViewPagerAdapter.setFragmentsItem(DealsTransportationFragment(), "Transport")
 
-    @SuppressLint("NotifyDataSetChanged")
-    private fun flightObserve() {
-        homeFragmentViewModel.getBlogData.observe(viewLifecycleOwner) { flight ->
-            flightAdapter.setFlightData(flight)
-            homeBinding.flightsButton.setOnClickListener {
-                concatAdapter.addAdapter(flightAdapter)
-                concatAdapter.notifyDataSetChanged()
-                concatAdapter.removeAdapter(allItemAdapter)
-                concatAdapter.removeAdapter(transportationsAdapter)
-                concatAdapter.removeAdapter(hotelsAdapter)
-            }
-        }
-    }
+        homeBinding.homeViewPager.adapter = dealsViewPagerAdapter
+        homeBinding.homeViewPager.isUserInputEnabled = false
 
-    @SuppressLint("NotifyDataSetChanged")
-    private fun transportObserve() {
-        homeFragmentViewModel.getBlogData.observe(viewLifecycleOwner) { transport ->
-            transportationsAdapter.setTransportData(transport)
-            homeBinding.transportButton.setOnClickListener {
-                concatAdapter.addAdapter(transportationsAdapter)
-                concatAdapter.notifyDataSetChanged()
-                concatAdapter.removeAdapter(allItemAdapter)
-                concatAdapter.removeAdapter(flightAdapter)
-                concatAdapter.removeAdapter(hotelsAdapter)
-            }
-        }
-    }
+        tabLayout = homeBinding.dealsTabLayout
 
-    @SuppressLint("NotifyDataSetChanged")
-    private fun hotelsObserve() {
-        homeFragmentViewModel.getBlogData.observe(viewLifecycleOwner) { hotels ->
-            hotelsAdapter.setHotelsData(hotels)
-            homeBinding.hotelButton.setOnClickListener {
-                concatAdapter.addAdapter(hotelsAdapter)
-                concatAdapter.notifyDataSetChanged()
-                concatAdapter.removeAdapter(allItemAdapter)
-                concatAdapter.removeAdapter(transportationsAdapter)
-                concatAdapter.removeAdapter(flightAdapter)
-            }
-        }
-    }
-
-    private fun concatAdapter() {
-        concatAdapter = ConcatAdapter(
-            allItemAdapter
-        )
-        homeBinding.homeRecyclerview.adapter = concatAdapter
+        TabLayoutMediator(homeBinding.dealsTabLayout, viewPager) { tab, position ->
+            tab.text = dealsViewPagerAdapter.tabLayoutTitle[position]
+        }.attach()
     }
 
 
@@ -150,36 +82,11 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun refreshData() {
-        homeBinding.apply {
-            swipeRefreshLayout.setOnRefreshListener {
-                homeRecyclerview.visibility = View.INVISIBLE
-                homeFragmentViewModel.getAllBlogData()
-                swipeRefreshLayout.isRefreshing = false
-            }
-        }
-    }
-
-    private fun loadingData() {
-        homeFragmentViewModel.homeLoading.observe(viewLifecycleOwner) { loading ->
-            loading?.let {
-                homeBinding.apply {
-                    if (it) {
-                        homeLoading.visibility = View.VISIBLE
-                        homeRecyclerview.visibility = View.INVISIBLE
-                    } else {
-                        homeRecyclerview.visibility = View.VISIBLE
-                        homeLoading.visibility = View.GONE
-                    }
-                }
-            }
-        }
-    }
-
-    private fun bottomNavigationVisible(){
+    private fun bottomNavigationVisible() {
         //Bottom Navigation VISIBLE
         val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        val navbarBlur = requireActivity().findViewById<ImageView>(R.id.background_blur_bottom_navigation)
+        val navbarBlur =
+            requireActivity().findViewById<ImageView>(R.id.background_blur_bottom_navigation)
         navBar.visibility = View.VISIBLE
         navbarBlur.visibility = View.VISIBLE
     }

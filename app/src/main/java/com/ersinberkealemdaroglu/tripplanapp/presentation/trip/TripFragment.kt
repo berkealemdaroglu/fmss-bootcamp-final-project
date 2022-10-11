@@ -1,5 +1,6 @@
 package com.ersinberkealemdaroglu.tripplanapp.presentation.trip
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,9 +24,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class TripScreenFragment : Fragment() {
     private lateinit var tripBinding: FragmentTripScreenBinding
     private lateinit var viewPager: ViewPager2
-    private val fragmentItems = ArrayList<Fragment>()
     private val fragmentTitle = ArrayList<String>()
     private lateinit var tabLayout: TabLayout
+    private lateinit var viewPagerAdapter: ViewPagerAdapter
     private val tabIcons = intArrayOf(R.drawable.trips_bookmark_icon, R.drawable.bookmark_icon)
 
     override fun onCreateView(
@@ -43,23 +44,31 @@ class TripScreenFragment : Fragment() {
         init()
         viewPagerSetup()
         bottomNavigationVisible()
+
+
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun init() {
         viewPager = tripBinding.viewPager
     }
 
     private fun viewPagerSetup() {
-        fragmentItems.add(TripsBookmarkFragment())
-        fragmentItems.add(BookmarkFragment())
+        viewPagerAdapter = ViewPagerAdapter(childFragmentManager, lifecycle)
+        viewPagerAdapter.setFragments(TripsBookmarkFragment())
+        viewPagerAdapter.setFragments(BookmarkFragment())
+
+        tripBinding.viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        tripBinding.viewPager.adapter = viewPagerAdapter
+
         fragmentTitle.add("Trips")
         fragmentTitle.add("Bookmarks")
 
-        tripBinding.viewPager.adapter = ViewPagerAdapter(fragmentItems, this)
         tabLayout = tripBinding.tabLayout
         TabLayoutMediator(tripBinding.tabLayout, viewPager) { tab, position ->
             tab.text = fragmentTitle[position]
         }.attach()
+
 
         tripBinding.tabLayout.getTabAt(0)!!.setIcon(tabIcons[0])
         tripBinding.tabLayout.getTabAt(1)!!.setIcon(tabIcons[1])

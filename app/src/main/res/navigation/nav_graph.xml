@@ -57,7 +57,11 @@
         android:id="@+id/tripScreenFragment"
         tools:layout="@layout/fragment_trip_screen"
         android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.trip.TripScreenFragment"
-        android:label="TripScreenFragment" />
+        android:label="TripScreenFragment" >
+        <action
+            android:id="@+id/action_tripScreenFragment_to_tripBottomSheet"
+            app:destination="@id/tripBottomSheet" />
+    </fragment>
     <fragment
         android:id="@+id/guideSeeAllFragment"
         tools:layout="@layout/fragment_guide_see_all"
@@ -76,16 +80,6 @@
             android:id="@+id/action_bookmarkFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/tripsBookmarkFragment"
-        tools:layout="@layout/fragment_trips"
-        android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.trip.tripbookmark.TripsBookmarkFragment"
-        android:label="TripsBookmarkFragment" />
-    <dialog
-        android:id="@+id/tripBottomSheet"
-        tools:layout="@layout/trip_bottom_sheet"
-        android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.trip.tripbookmark.TripBottomSheet"
-        android:label="TripBottomSheet" />
     <fragment
         android:id="@+id/imageFullSize"
         tools:layout="@layout/detail_image_full_size"
@@ -108,4 +102,8 @@
             android:id="@+id/action_searchListFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </dialog>
+    <dialog
+        android:id="@+id/tripBottomSheet"
+        android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.trip.tripbookmark.TripBottomSheet"
+        android:label="TripBottomSheet" />
 </navigation>

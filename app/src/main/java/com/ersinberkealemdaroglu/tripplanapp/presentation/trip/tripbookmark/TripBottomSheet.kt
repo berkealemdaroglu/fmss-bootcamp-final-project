@@ -10,8 +10,6 @@ import androidx.fragment.app.viewModels
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.TripBottomSheetBinding
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.tripmodel.TripModel
-import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.adapter.ViewPagerAdapter
-import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.tripbookmark.TripBookmarkViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,13 +39,13 @@ class TripBottomSheet : BottomSheetDialogFragment() {
         tripBottomSheetBinding.addBookmarkButton.setOnClickListener {
             val countryText = tripBottomSheetBinding.countryText.text.toString()
             val cityText = tripBottomSheetBinding.cityText.text.toString()
-            if(cityText.isNotEmpty() || countryText.isNotEmpty()){
+            if (cityText.isNotEmpty() || countryText.isNotEmpty()) {
                 tripBookmarkViewModel.setTripModelLocalDB(TripModel(countryText, cityText))
-                dismiss()
-            }else{
-                Toast.makeText(context, "Please fill in the required fields!\n", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Please fill in the required fields!\n", Toast.LENGTH_SHORT)
+                    .show()
             }
-            
+            dismiss()
         }
     }
 

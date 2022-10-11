@@ -7,7 +7,7 @@ import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelMode
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.tripmodel.TripModel
 import com.ersinberkealemdaroglu.tripplanapp.utils.Converter
 
-@Database(entities = [TravelModelItem::class, TripModel::class], version = 1, exportSchema = false)
+@Database(entities = [TravelModelItem::class, TripModel::class], version = 3, exportSchema = false)
 @TypeConverters(Converter::class)
 abstract class TravelAppDatabase : RoomDatabase() {
     abstract fun travelAppDao(): TravelAppDao

@@ -18,9 +18,6 @@ import javax.inject.Inject
 class HomeFragmentViewModel @Inject constructor(private val blogDataModelUseCase: BlogDataModelUseCase) :
     ViewModel() {
 
-    private val _homeLoading = MutableLiveData<Boolean>()
-    val homeLoading : LiveData<Boolean> = _homeLoading
-
     private var _blogData = MutableLiveData<TravelModel>()
     val getBlogData: LiveData<TravelModel> = _blogData
 
@@ -28,18 +25,15 @@ class HomeFragmentViewModel @Inject constructor(private val blogDataModelUseCase
         getAllBlogData()
     }
 
-    fun getAllBlogData() {
-        _homeLoading.postValue(true)
+    private fun getAllBlogData() {
         CoroutineScope(Dispatchers.IO).launch {
             blogDataModelUseCase.getBlogData().enqueue(object : Callback<TravelModel> {
                 override fun onResponse(call: Call<TravelModel>, response: Response<TravelModel>) {
                     _blogData.value = response.body()
-                    _homeLoading.postValue(false)
                 }
 
                 override fun onFailure(call: Call<TravelModel>, t: Throwable) {
                     println("Warning!")
-                    _homeLoading.postValue(true)
                 }
             })
         }

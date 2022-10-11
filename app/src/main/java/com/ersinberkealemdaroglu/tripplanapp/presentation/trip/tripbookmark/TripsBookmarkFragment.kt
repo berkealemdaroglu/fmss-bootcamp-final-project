@@ -1,5 +1,6 @@
 package com.ersinberkealemdaroglu.tripplanapp.presentation.trip.tripbookmark
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +8,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentTripsBinding
+import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.TripScreenFragmentDirections
 import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.adapter.TripBookmarkAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -45,14 +48,20 @@ class TripsBookmarkFragment : Fragment() {
 
     private fun tripBottomSheet() {
         tripsBinding.floatingActionButton.setOnClickListener {
-            val tripBottomSheet = TripBottomSheet()
-            tripBottomSheet.show(childFragmentManager, "TAG1")
+   /*         val tripBottomSheet = TripBottomSheet()
+            tripBottomSheet.show(childFragmentManager, "TAG1")*/
+
+            val action = TripScreenFragmentDirections.actionTripScreenFragmentToTripBottomSheet()
+            findNavController().navigate(action)
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun getAllTripModel() {
         tripBookmarkViewModel.getAllTripModelLocalDB().observe(viewLifecycleOwner) { tripModel ->
             tripBookmarkAdapter.setTripModel(tripModel)
+            tripBookmarkAdapter.notifyDataSetChanged()
+            println("osman" + tripBookmarkAdapter.itemCount)
         }
     }
 

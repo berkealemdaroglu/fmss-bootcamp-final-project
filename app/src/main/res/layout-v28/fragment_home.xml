@@ -157,8 +157,7 @@
                     android:textFontWeight="600"
                     android:textSize="@dimen/_20ssp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homeTopImage"
-                    tools:ignore="UnusedAttribute" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeTopImage" />
 
 
                 <ProgressBar

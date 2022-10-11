@@ -19,7 +19,6 @@ class BookmarkAdapterViewHolder(private val bookmarkBinding: ViewDataBinding) :
         bookmarkBinding.setVariable(BR.nearbyItem, travelModelItem)
 
         bookmarkBinding.bookmarkButton.setOnClickListener {
-            println("view holder girdi")
             bookmarkOnItemClickListener?.onClick(travelModelItem)
         }
 
