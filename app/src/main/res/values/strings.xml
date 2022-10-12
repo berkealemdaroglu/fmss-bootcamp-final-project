@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TripPlanApp</string>
+    <string name="app_name">TripPlanAppYedek</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="card_image">Card Image</string>
     <string name="where_s_your_nnext_destination">Where’s your\nnext destination?</string>
