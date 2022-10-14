@@ -20,6 +20,7 @@
         <item name="windowSplashScreenBackground">@color/ic_logo</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/travel_app_splash_logo</item>
         <item name="windowSplashScreenAnimationDuration">200</item>
+        <item name="splashScreenIconSize">@dimen/_55sdp</item>
 
         <item name="postSplashScreenTheme">@style/Theme.TripPlanApp</item>
     </style>

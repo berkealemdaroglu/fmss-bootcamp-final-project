@@ -36,6 +36,7 @@
                     android:layout_height="match_parent"
                     android:foreground="@drawable/recyclerview_items_image_background_stroke"
                     android:scaleType="centerCrop"
+                    android:downloadImageUrl="@{nearbyItem.images[0].url}"
                     tools:src="@drawable/nearby_item_test_image"
                     tools:ignore="ContentDescription" />
 
