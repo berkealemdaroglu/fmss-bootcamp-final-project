@@ -1,6 +1,5 @@
 package com.ersinberkealemdaroglu.tripplanapp.presentation.guide
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -22,8 +21,9 @@ import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.guidecategoryada
 import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.needblogadapter.MightNeedTheseAdapter
 import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.toparticlesadapter.BlogDataTopArticlesAdapter
 import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.adapter.BookmarkAdapter
-import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
+import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkItemOnClickListener
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
+import com.ersinberkealemdaroglu.tripplanapp.utils.SharedPreference
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,6 +37,7 @@ class GuideFragment : Fragment() {
     private val bookmarkAdapter: BookmarkAdapter = BookmarkAdapter()
     private val guideCategoryAdapter = GuideCategoryAdapter()
     private val travelModel = TravelModel()
+    private lateinit var sharedPreference: SharedPreference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -78,6 +79,10 @@ class GuideFragment : Fragment() {
         guideBinding.categoryRecyclerview.adapter = guideCategoryAdapter
 
         guideBinding.mightNeedRecyclerview.isNestedScrollingEnabled.not()
+
+        context?.let {
+            sharedPreference = SharedPreference(it)
+        }
 
 
     }
@@ -147,12 +152,10 @@ class GuideFragment : Fragment() {
     }
 
     private fun bookmarkAddLocalDB() {
-        blogDataTopArticlesAdapter.setBookmarkOnClickListener(object : BookmarkOnItemClickListener {
-            @SuppressLint("NotifyDataSetChanged")
+        blogDataTopArticlesAdapter.setBookmarkOnClickListener(object : BookmarkItemOnClickListener {
             override fun onClick(travelModelItem: TravelModelItem) {
                 guideFragmentViewModel.addBookmarkLocalDB(travelModelItem)
                 bookmarkAdapter.setBookmarkData(travelModel)
-                bookmarkAdapter.notifyDataSetChanged()
             }
         })
     }
@@ -164,7 +167,7 @@ class GuideFragment : Fragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                guideBinding.searchBar.setOnEditorActionListener { v, actionId, event ->
+                guideBinding.searchBar.setOnEditorActionListener { _, actionId, _ ->
                     if (actionId != EditorInfo.IME_ACTION_DONE) {
                         val searchText = s.toString()
                         val action =

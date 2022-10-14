@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ersinberkealemdaroglu.tripplanapp.data.remote.localrepository.DatabaseRepository
+//import com.ersinberkealemdaroglu.tripplanapp.data.remote.localrepository.DatabaseRepository
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.guidecategory.GuideCategory
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModel
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem

@@ -18,6 +18,8 @@ class DetailFragmentViewModel @Inject constructor(
         CoroutineScope(Dispatchers.IO).launch {
             if (!databaseRepository.exists(travelModelItem.id)) {
                 databaseRepository.addBookmark(travelModelItem)
+            } else {
+                println("zaten ekli osman")
             }
         }
     }

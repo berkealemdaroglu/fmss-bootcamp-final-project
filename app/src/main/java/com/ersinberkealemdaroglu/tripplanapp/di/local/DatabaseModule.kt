@@ -24,7 +24,7 @@ class DatabaseModule {
         return Room.databaseBuilder(
             appContext,
             TravelAppDatabase::class.java,
-            "TravelAppDatabase"
+            "TravelDatabase"
         ).build()
     }
 }

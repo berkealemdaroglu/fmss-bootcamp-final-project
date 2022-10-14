@@ -19,9 +19,6 @@ class BookmarkViewModel @Inject constructor(private val databaseRepository: Data
     val travelModel: LiveData<List<TravelModelItem>>
         get() = _travelModel
 
-    init {
-        getTravelModelLocalDB()
-    }
 
     fun getTravelModelLocalDB() {
         CoroutineScope(Dispatchers.IO).launch {
@@ -29,9 +26,11 @@ class BookmarkViewModel @Inject constructor(private val databaseRepository: Data
         }
     }
 
-/*    fun deleteTravelModelLocalDB(id: String) {
+
+    fun deleteTravelModelLocalDB(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
             databaseRepository.delete(id)
         }
-    }*/
+    }
+
 }

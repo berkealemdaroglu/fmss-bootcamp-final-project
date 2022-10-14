@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModel
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
-import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
+import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkItemOnClickListener
 
 class BlogDataTopArticlesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var blogDataModel: TravelModel = TravelModel()
     private var topPickArray = ArrayList<TravelModelItem>()
-    private var bookmarkOnItemClickListener: BookmarkOnItemClickListener? = null
+    private var bookmarkItemOnClickListener: BookmarkItemOnClickListener? = null
 
     private fun categoryFilter() {
         for (travel in blogDataModel) {
@@ -36,7 +36,7 @@ class BlogDataTopArticlesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as BlogDataTopArticlesAdapterViewHolder).topArticlesBind(
             topPickArray[position],
-            bookmarkOnItemClickListener
+            bookmarkItemOnClickListener,
         )
     }
 
@@ -51,7 +51,7 @@ class BlogDataTopArticlesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
         notifyDataSetChanged()
     }
 
-    fun setBookmarkOnClickListener(bookmarkOnClick: BookmarkOnItemClickListener) {
-        this.bookmarkOnItemClickListener = bookmarkOnClick
+    fun setBookmarkOnClickListener(bookmarkOnClick: BookmarkItemOnClickListener) {
+        this.bookmarkItemOnClickListener = bookmarkOnClick
     }
 }

@@ -61,6 +61,9 @@
         <action
             android:id="@+id/action_tripScreenFragment_to_tripBottomSheet"
             app:destination="@id/tripBottomSheet" />
+        <action
+            android:id="@+id/action_tripScreenFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/guideSeeAllFragment"
@@ -105,5 +108,9 @@
     <dialog
         android:id="@+id/tripBottomSheet"
         android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.trip.tripbookmark.TripBottomSheet"
-        android:label="TripBottomSheet" />
+        android:label="TripBottomSheet" >
+        <action
+            android:id="@+id/action_tripBottomSheet_to_tripScreenFragment"
+            app:destination="@id/tripScreenFragment" />
+    </dialog>
 </navigation>

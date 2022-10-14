@@ -18,7 +18,7 @@ import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentSearchBinding
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
 import com.ersinberkealemdaroglu.tripplanapp.presentation.search.adapter.NearbyAdapter
 import com.ersinberkealemdaroglu.tripplanapp.presentation.search.adapter.TopDestinationsAdapter
-import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
+import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemRemoveClickListener
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -58,7 +58,7 @@ class SearchFragment : Fragment() {
         topDestinationsAdapter()
         nearbyAdapter()
         pushNearbyOnClickListener()
-        refreshData()
+        //refreshData()
         loadingData()
         pushTopDestinationListener()
         bookmarkAddLocalDB()
@@ -73,7 +73,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun nearbyAdapter() {
-        searchViewModel.getBlogData.observe(viewLifecycleOwner) { nearbyItem ->
+        searchViewModel.nearbyData.observe(viewLifecycleOwner) { nearbyItem ->
             nearbyAdapter.setNearbyData(nearbyItem)
         }
     }
@@ -100,7 +100,7 @@ class SearchFragment : Fragment() {
         })
     }
 
-    private fun refreshData() {
+/*    private fun refreshData() {
         searchBinding.apply {
             swipeRefreshLayout.setOnRefreshListener {
                 topDestinationRV.visibility = View.INVISIBLE
@@ -109,7 +109,7 @@ class SearchFragment : Fragment() {
                 swipeRefreshLayout.isRefreshing = false
             }
         }
-    }
+    }*/
 
     private fun loadingData() {
         searchViewModel.searchLoadData.observe(viewLifecycleOwner) { loading ->
@@ -130,7 +130,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun bookmarkAddLocalDB() {
-        nearbyAdapter.setBookmarkOnClickListener(object : BookmarkOnItemClickListener {
+        nearbyAdapter.setBookmarkOnClickListener(object : BookmarkOnItemRemoveClickListener {
             override fun onClick(travelModelItem: TravelModelItem) {
                 searchViewModel.addBookmarkLocalDB(travelModelItem)
             }

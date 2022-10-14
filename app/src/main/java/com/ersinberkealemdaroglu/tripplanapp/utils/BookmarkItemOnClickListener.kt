@@ -2,7 +2,7 @@ package com.ersinberkealemdaroglu.tripplanapp.utils
 
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
 
-interface BookmarkOnItemClickListener {
+interface BookmarkItemOnClickListener {
 
     fun onClick(travelModelItem: TravelModelItem)
 }

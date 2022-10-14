@@ -12,9 +12,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ersinberkealemdaroglu.tripplanapp.R
+import com.ersinberkealemdaroglu.tripplanapp.data.remote.localrepository.DatabaseRepository
 import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentDetailBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -22,6 +24,9 @@ class DetailFragment : Fragment() {
     private lateinit var detailBinding: FragmentDetailBinding
     private val navArgs: DetailFragmentArgs by navArgs()
     private val detailFragmentViewModel: DetailFragmentViewModel by viewModels()
+
+    @Inject
+    lateinit var databaseRepository: DatabaseRepository
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,6 +59,7 @@ class DetailFragment : Fragment() {
                 Toast.makeText(context, "Added to Bookmark", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 
     private fun imageFull() {
@@ -68,10 +74,11 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun bottomNavigationInvisible(){
+    private fun bottomNavigationInvisible() {
         //Bottom Navigation INVISIBLE
         val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        val navbarBlur = requireActivity().findViewById<ImageView>(R.id.background_blur_bottom_navigation)
+        val navbarBlur =
+            requireActivity().findViewById<ImageView>(R.id.background_blur_bottom_navigation)
         navBar.visibility = View.INVISIBLE
         navbarBlur.visibility = View.INVISIBLE
     }

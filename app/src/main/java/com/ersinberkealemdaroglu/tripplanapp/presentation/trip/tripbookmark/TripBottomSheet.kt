@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.databinding.TripBottomSheetBinding
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.tripmodel.TripModel
@@ -42,10 +43,10 @@ class TripBottomSheet : BottomSheetDialogFragment() {
             if (cityText.isNotEmpty() || countryText.isNotEmpty()) {
                 tripBookmarkViewModel.setTripModelLocalDB(TripModel(countryText, cityText))
             } else {
-                Toast.makeText(context, "Please fill in the required fields!\n", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(context, "Please fill in the required fields!\n", Toast.LENGTH_SHORT).show()
             }
-            dismiss()
+            val action = TripBottomSheetDirections.actionTripBottomSheetToTripScreenFragment()
+            findNavController().navigate(action)
         }
     }
 

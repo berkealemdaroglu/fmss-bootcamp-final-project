@@ -1,21 +1,21 @@
 package com.ersinberkealemdaroglu.tripplanapp.domain.model.tripmodel
 
 import android.os.Parcelable
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
+@Entity(tableName = "trip_model")
 @Parcelize
-@Entity
 data class TripModel(
+    @ColumnInfo(name = "country")
     val country: String,
-    val city: String,
-    //val checkIn: Date,
-    //val checkOut: Date,
-    //val url: String,
-    //val travelNeed : ArrayList<String>?
+    @ColumnInfo(name = "city")
+    val city: String
 ) : Parcelable{
-
+    @IgnoredOnParcel
     @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
+    var uuid: Int = 0
 }

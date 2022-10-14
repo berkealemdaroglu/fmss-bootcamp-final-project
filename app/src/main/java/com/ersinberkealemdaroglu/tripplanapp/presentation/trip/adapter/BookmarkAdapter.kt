@@ -8,19 +8,19 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
-import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
-import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
+import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkItemOnClickListener
+import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemRemoveClickListener
 
 class BookmarkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private lateinit var bookmarkBinding: ViewDataBinding
-    private var travelModel: ArrayList<TravelModelItem> = ArrayList()
-    private var bookmarkOnItemClickListener: BookmarkOnItemClickListener? = null
-    private var mightNeedTheseOnClickListener: MightNeedTheseOnClickListener? = null
+    private var travelModel = ArrayList<TravelModelItem>()
+    private var bookmarkOnItemRemoveClickListener: BookmarkOnItemRemoveClickListener? = null
+    private var bookmarkItemOnClickListener: BookmarkItemOnClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         bookmarkBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.search_nearby_item,
+            R.layout.bookmark_item,
             parent,
             false
         )
@@ -31,8 +31,8 @@ class BookmarkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as BookmarkAdapterViewHolder).bookmarkBind(
             travelModel[position],
-            bookmarkOnItemClickListener,
-            mightNeedTheseOnClickListener
+            bookmarkOnItemRemoveClickListener,
+            bookmarkItemOnClickListener
         )
     }
 
@@ -41,18 +41,23 @@ class BookmarkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setBookmarkData(travelModelItems: List<TravelModelItem>) {
+    fun setBookmarkData(travelModelItem: List<TravelModelItem>) {
         this.travelModel.clear()
-        this.travelModel.addAll(travelModelItems)
+        this.travelModel.addAll(travelModelItem)
         notifyDataSetChanged()
     }
 
-/*    fun setBookmarkItemOnClickListener(bookmarkOnItemClickListener: BookmarkOnItemClickListener) {
-        this.bookmarkOnItemClickListener = bookmarkOnItemClickListener
+    @SuppressLint("NotifyDataSetChanged")
+    fun setBookmarkItemOnClickListener(bookmarkItemOnClickListener: BookmarkItemOnClickListener) {
+        this.bookmarkItemOnClickListener = bookmarkItemOnClickListener
+        notifyDataSetChanged()
     }
 
-    fun setBookmarkOnClickListener(listener: MightNeedTheseOnClickListener) {
-        this.mightNeedTheseOnClickListener = listener
-    }*/
+    @SuppressLint("NotifyDataSetChanged")
+    fun setBookmarkRemoveItemClickListener(bookmarkOnItemRemoveClickListener: BookmarkOnItemRemoveClickListener) {
+        this.bookmarkOnItemRemoveClickListener = bookmarkOnItemRemoveClickListener
+        notifyDataSetChanged()
+    }
+
 
 }

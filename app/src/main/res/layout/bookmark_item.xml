@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="nearbyItem"
+            name="bookmarkItem"
             type="com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem" />
     </data>
 
@@ -35,8 +35,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:foreground="@drawable/recyclerview_items_image_background_stroke"
-                    android:downloadImageUrl="@{nearbyItem.images[0].url}"
                     android:scaleType="centerCrop"
+                    android:downloadImageUrl="@{bookmarkItem.images[0].url}"
                     tools:src="@drawable/nearby_item_test_image"
                     tools:ignore="ContentDescription" />
 
@@ -47,12 +47,13 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_minus15sdp"
                     android:fontFamily="@font/source_sans_pro_bold"
-                    android:text="@{nearbyItem.city}"
+                    android:text="@{bookmarkItem.city}"
                     android:textAllCaps="false"
                     android:textColor="@color/top_destinations_text_color"
                     android:textFontWeight="700"
                     android:textSize="@dimen/_20ssp"
-                    tools:text="Tokyo" />
+                    tools:text="Tokyo"
+                    tools:ignore="UnusedAttribute" />
 
                 <TextView
                     android:id="@+id/countryText"
@@ -61,11 +62,12 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:fontFamily="@font/source_sans_pro"
-                    android:text="@{nearbyItem.country}"
+                    android:text="@{bookmarkItem.country}"
                     android:textColor="@color/top_destinations_text_color"
                     android:textFontWeight="600"
                     android:textSize="@dimen/_16ssp"
-                    tools:text="Japan" />
+                    tools:text="Japan"
+                    tools:ignore="UnusedAttribute" />
 
                 <TextView
                     android:id="@+id/textView7"
@@ -76,18 +78,20 @@
                     android:background="@drawable/search_nearby_text_background_radius"
                     android:fontFamily="@font/source_sans_pro"
                     android:gravity="center"
-                    android:text="@{nearbyItem.category}"
+                    android:text="@{bookmarkItem.category}"
                     android:textAllCaps="true"
                     android:textColor="@color/top_destinations_text_color"
                     android:textFontWeight="600"
                     android:textSize="@dimen/_14ssp"
-                    tools:text="HOTEL" />
+                    tools:text="HOTEL"
+                    tools:ignore="UnusedAttribute" />
 
                 <ImageButton
                     android:id="@+id/bookmarkButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:clickable="true"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_9sdp"
                     android:background="@android:color/transparent"

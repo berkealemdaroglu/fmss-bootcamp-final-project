@@ -48,9 +48,6 @@ class TripsBookmarkFragment : Fragment() {
 
     private fun tripBottomSheet() {
         tripsBinding.floatingActionButton.setOnClickListener {
-   /*         val tripBottomSheet = TripBottomSheet()
-            tripBottomSheet.show(childFragmentManager, "TAG1")*/
-
             val action = TripScreenFragmentDirections.actionTripScreenFragmentToTripBottomSheet()
             findNavController().navigate(action)
         }
@@ -61,7 +58,6 @@ class TripsBookmarkFragment : Fragment() {
         tripBookmarkViewModel.getAllTripModelLocalDB().observe(viewLifecycleOwner) { tripModel ->
             tripBookmarkAdapter.setTripModel(tripModel)
             tripBookmarkAdapter.notifyDataSetChanged()
-            println("osman" + tripBookmarkAdapter.itemCount)
         }
     }
 

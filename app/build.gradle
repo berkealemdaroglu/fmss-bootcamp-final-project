@@ -74,6 +74,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.4.3")
     implementation "androidx.room:room-runtime:2.4.3"
     kapt "androidx.room:room-compiler:2.4.3"
+
     //Card view
     implementation("androidx.cardview:cardview:1.0.0")
     // Viewpager 2
@@ -82,5 +83,6 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     //splash Android 12
     implementation 'androidx.core:core-splashscreen:1.0.0'
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
 }

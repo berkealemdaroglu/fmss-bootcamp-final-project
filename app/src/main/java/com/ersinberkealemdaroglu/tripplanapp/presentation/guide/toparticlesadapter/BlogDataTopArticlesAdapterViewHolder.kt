@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ersinberkealemdaroglu.tripplanapp.databinding.TopPickArticlesItemBinding
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
 import com.ersinberkealemdaroglu.tripplanapp.presentation.guide.GuideFragmentDirections
-import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
+import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkItemOnClickListener
 
 class BlogDataTopArticlesAdapterViewHolder(private val topArticlesBinding: ViewDataBinding) :
     RecyclerView.ViewHolder(topArticlesBinding.root) {
@@ -16,7 +16,7 @@ class BlogDataTopArticlesAdapterViewHolder(private val topArticlesBinding: ViewD
     @SuppressLint("ResourceAsColor")
     fun topArticlesBind(
         blogDataItem: TravelModelItem,
-        bookmarkOnItemClickListener: BookmarkOnItemClickListener?
+        bookmarkItemOnClickListener: BookmarkItemOnClickListener?
     ) {
         topArticlesBinding as TopPickArticlesItemBinding
         topArticlesBinding.setVariable(BR.blogDataItem, blogDataItem)
@@ -27,10 +27,8 @@ class BlogDataTopArticlesAdapterViewHolder(private val topArticlesBinding: ViewD
         }
 
         topArticlesBinding.topPickBookmarkButton.setOnClickListener {
-            bookmarkOnItemClickListener?.onClick(blogDataItem)
-
+            bookmarkItemOnClickListener?.onClick(blogDataItem)
         }
-
     }
 
 }

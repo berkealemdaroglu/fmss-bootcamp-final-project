@@ -20,6 +20,9 @@ class TripBookmarkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun tripModelBind(tripModel: TripModel) {
             tripBinding as TripsItemBinding
             tripBinding.setVariable(BR.TripItem, tripModel)
+            tripBinding.nearbyImages.setOnClickListener {
+                println("tıklandı osman")
+            }
         }
     }
 
@@ -48,4 +51,5 @@ class TripBookmarkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         this.tripModel.addAll(tripModel)
         notifyDataSetChanged()
     }
+
 }

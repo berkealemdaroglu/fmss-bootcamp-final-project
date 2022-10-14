@@ -8,7 +8,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.ersinberkealemdaroglu.tripplanapp.R
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModel
-import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemClickListener
+import com.ersinberkealemdaroglu.tripplanapp.utils.BookmarkOnItemRemoveClickListener
 import com.ersinberkealemdaroglu.tripplanapp.utils.MightNeedTheseOnClickListener
 
 class NearbyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -16,7 +16,7 @@ class NearbyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var travelModel: TravelModel = TravelModel()
     private lateinit var nearbyBinding: ViewDataBinding
     private var detailOnClickListener: MightNeedTheseOnClickListener? = null
-    private var bookmarkOnItemClickListener: BookmarkOnItemClickListener? = null
+    private var bookmarkOnItemRemoveClickListener: BookmarkOnItemRemoveClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         nearbyBinding = DataBindingUtil.inflate(
@@ -29,7 +29,7 @@ class NearbyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as NearbyAdapterViewHolder).nearbyBind(travelModel[position], detailOnClickListener, bookmarkOnItemClickListener)
+        (holder as NearbyAdapterViewHolder).nearbyBind(travelModel[position], detailOnClickListener, bookmarkOnItemRemoveClickListener)
     }
 
     override fun getItemCount(): Int {
@@ -46,8 +46,8 @@ class NearbyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         this.detailOnClickListener = listener
     }
 
-    fun setBookmarkOnClickListener(bookmarkOnClick: BookmarkOnItemClickListener) {
-        this.bookmarkOnItemClickListener = bookmarkOnClick
+    fun setBookmarkOnClickListener(bookmarkOnClick: BookmarkOnItemRemoveClickListener) {
+        this.bookmarkOnItemRemoveClickListener = bookmarkOnClick
     }
 
 
