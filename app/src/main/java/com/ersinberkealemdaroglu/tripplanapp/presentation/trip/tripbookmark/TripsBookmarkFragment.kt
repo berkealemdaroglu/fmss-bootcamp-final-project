@@ -15,6 +15,9 @@ import com.ersinberkealemdaroglu.tripplanapp.databinding.FragmentTripsBinding
 import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.TripScreenFragmentDirections
 import com.ersinberkealemdaroglu.tripplanapp.presentation.trip.adapter.TripBookmarkAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class TripsBookmarkFragment : Fragment() {
@@ -55,10 +58,10 @@ class TripsBookmarkFragment : Fragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun getAllTripModel() {
-        tripBookmarkViewModel.getAllTripModelLocalDB().observe(viewLifecycleOwner) { tripModel ->
-            tripBookmarkAdapter.setTripModel(tripModel)
-            tripBookmarkAdapter.notifyDataSetChanged()
-        }
+            tripBookmarkViewModel.getAllTripModelLocalDB().observe(viewLifecycleOwner) { tripModel ->
+                tripBookmarkAdapter.setTripModel(tripModel)
+                tripBookmarkAdapter.notifyDataSetChanged()
+            }
     }
 
 }

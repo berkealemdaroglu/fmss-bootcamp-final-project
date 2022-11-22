@@ -61,6 +61,7 @@ class GuideFragment : Fragment() {
         getAllGuideCategoryData()
         searchBottomSheet()
         bottomNavigationVisible()
+        fmssIkUsers()
     }
 
     private fun init() {
@@ -148,6 +149,13 @@ class GuideFragment : Fragment() {
                     }
                 }
             }
+        }
+    }
+
+    private fun fmssIkUsers(){
+        guideFragmentViewModel.fmssUsers.observe(viewLifecycleOwner){ users ->
+            guideBinding.guideTitle.text = users[1].email.toString()
+            println("osman" + users.get(1).email.toString())
         }
     }
 

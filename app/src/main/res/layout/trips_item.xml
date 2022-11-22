@@ -27,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
+                android:downloadImageUrl="@{TripItem.image}"
                 android:src="@drawable/trips_test_image"
                 tools:ignore="ContentDescription" />
 
@@ -67,7 +68,7 @@
                 android:fontFamily="@font/source_sans_pro"
                 android:gravity="center"
                 android:padding="@dimen/_4sdp"
-                android:text="@string/_5_days_left"
+                android:text="@{TripItem.date}"
                 android:textColor="@color/home_title_color"
                 android:textSize="@dimen/_13ssp"
                 app:drawableStartCompat="@drawable/trip_item_clock_icon" />

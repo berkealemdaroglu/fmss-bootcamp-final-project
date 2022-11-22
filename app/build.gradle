@@ -7,6 +7,7 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
     //Dagger Hilt
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -16,8 +17,8 @@ android {
         applicationId "com.ersinberkealemdaroglu.tripplanapp"
         minSdk 28
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -53,6 +54,13 @@ dependencies {
     //noinspection GradleDependency
     implementation 'com.android.car.ui:car-ui-lib:2.0.0'
     implementation 'androidx.core:core:1.9.0'
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-appcheck-safetynet:16.1.0'
+    implementation 'com.google.android.gms:play-services-measurement-api:21.2.0'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -84,5 +92,8 @@ dependencies {
     //splash Android 12
     implementation 'androidx.core:core-splashscreen:1.0.0'
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    implementation 'com.github.berkealemdaroglu:MyDateLibrary:1.5.1'
+
 
 }

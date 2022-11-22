@@ -8,6 +8,10 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.ersinberkealemdaroglu.tripplanapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.FirebaseApp
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,6 +30,18 @@ class MainActivity : AppCompatActivity() {
         )*/
         actionBar?.hide()
         bottomNavigationMenu()
+
+        FirebaseApp.initializeApp(/*context=*/this)
+        val firebaseAppCheck = FirebaseAppCheck.getInstance()
+        firebaseAppCheck.installAppCheckProviderFactory(
+            SafetyNetAppCheckProviderFactory.getInstance()
+        )
+
+        val analytics = FirebaseAnalytics.getInstance(this)
+        with(Bundle()) {
+            putString("Splash", "test")
+            analytics.logEvent("Splash", this)
+        }
     }
 
     private fun bottomNavigationMenu() {

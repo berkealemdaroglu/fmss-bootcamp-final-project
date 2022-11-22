@@ -21,7 +21,6 @@ class TripBookmarkAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             tripBinding as TripsItemBinding
             tripBinding.setVariable(BR.TripItem, tripModel)
             tripBinding.nearbyImages.setOnClickListener {
-                println("tıklandı osman")
             }
         }
     }

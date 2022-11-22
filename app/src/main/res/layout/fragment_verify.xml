@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F9FAFF"
+        tools:context=".Verify"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:gravity="bottom|center"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40dp"
+                android:paddingBottom="15dp"
+                android:text="Verify mobile"
+                android:textColor="#444444"
+                android:layout_margin="@dimen/_10sdp"
+                android:textSize="20sp" />
+
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="OTP Code"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_16ssp"
+                android:layout_margin="@dimen/_10sdp"
+                android:inputType="textPersonName"
+                android:text="" />
+
+
+
+
+            <Button
+                android:id="@+id/verifyBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Verify"
+                android:textAllCaps="false"
+                android:layout_margin="40dp"
+                android:textColor="#ffffff"
+                android:background="#6372FF" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -12,7 +12,20 @@
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_chatBotFragment"
+            app:destination="@id/chatBotFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -21,10 +34,18 @@
         android:label="SearchFragment" >
         <action
             android:id="@+id/action_searchFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_searchFragment_to_searchListFragment"
-            app:destination="@id/searchListFragment" />
+            app:destination="@id/searchListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -36,7 +57,7 @@
             app:argType="com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem" />
         <action
             android:id="@+id/action_detailFragment_to_imageFullSize"
-            app:destination="@id/imageFullSize" />
+            app:destination="@id/imageFullSize"/>
     </fragment>
     <fragment
         android:id="@+id/guideFragment"
@@ -45,13 +66,25 @@
         android:label="GuideFragment" >
         <action
             android:id="@+id/action_guideFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_guideFragment_to_guideSeeAllFragment"
-            app:destination="@id/guideSeeAllFragment" />
+            app:destination="@id/guideSeeAllFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_guideFragment_to_searchListFragment"
-            app:destination="@id/searchListFragment" />
+            app:destination="@id/searchListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/tripScreenFragment"
@@ -60,10 +93,18 @@
         android:label="TripScreenFragment" >
         <action
             android:id="@+id/action_tripScreenFragment_to_tripBottomSheet"
-            app:destination="@id/tripBottomSheet" />
+            app:destination="@id/tripBottomSheet"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_tripScreenFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/guideSeeAllFragment"
@@ -72,7 +113,11 @@
         android:label="GuideSeeAllFragment" >
         <action
             android:id="@+id/action_guideSeeAllFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/bookmarkFragment"
@@ -81,7 +126,11 @@
         android:label="BookmarkFragment" >
         <action
             android:id="@+id/action_bookmarkFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/imageFullSize"
@@ -103,7 +152,11 @@
             android:defaultValue="Berke" />
         <action
             android:id="@+id/action_searchListFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </dialog>
     <dialog
         android:id="@+id/tripBottomSheet"
@@ -111,6 +164,37 @@
         android:label="TripBottomSheet" >
         <action
             android:id="@+id/action_tripBottomSheet_to_tripScreenFragment"
-            app:destination="@id/tripScreenFragment" />
+            app:destination="@id/tripScreenFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </dialog>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.ersinberkealemdaroglu.tripplanapp.presentation.register.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatBotFragment"
+        android:name="com.ersinberkealemdaroglu.tripplanapp.ChatBotFragment"
+        android:label="ChatBotFragment" />
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.ersinberkealemdaroglu.tripplanapp.WebViewFragment"
+        android:label="WebViewFragment" />
 </navigation>

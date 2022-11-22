@@ -17,6 +17,7 @@
                 tools:context=".presentation.HomeFragment">
 
 
+
                 <ImageView
                     android:id="@+id/homeTopImage"
                     android:layout_width="match_parent"
@@ -180,7 +181,6 @@
                     app:tabIndicatorFullWidth="false"
                     app:tabGravity="fill"
                     app:tabRippleColor="@android:color/transparent"
-                    app:tabTextAppearance="@style/MyCustomTextAppearance"
                     android:textSize="@dimen/_9ssp"
                     app:tabIndicatorColor="@color/bottom_menu_item_selected"
                     app:tabSelectedTextColor="@color/bottom_menu_item_selected"
@@ -201,6 +201,38 @@
                     app:layout_constraintTop_toBottomOf="@+id/dealsTabLayout"
                     app:layout_constraintVertical_bias="0.0" />
 
+                <ImageButton
+                    android:id="@+id/loginNavigateButton"
+                    android:layout_width="43dp"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:scaleType="fitXY"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_login_24" />
+
+                <ImageView
+                    android:id="@+id/chat_bot"
+                    android:layout_width="69dp"
+                    android:layout_height="73dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/detail_pin_icon" />
+
+                <ImageButton
+                    android:id="@+id/webvViewButton"
+                    android:layout_width="70dp"
+                    android:layout_height="63dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/loginNavigateButton"
+                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintStart_toEndOf="@+id/chat_bot"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/category_test_icon" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>

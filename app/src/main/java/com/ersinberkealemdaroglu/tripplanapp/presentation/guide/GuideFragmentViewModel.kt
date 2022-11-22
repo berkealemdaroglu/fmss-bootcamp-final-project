@@ -8,7 +8,9 @@ import com.ersinberkealemdaroglu.tripplanapp.data.remote.localrepository.Databas
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.guidecategory.GuideCategory
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModel
 import com.ersinberkealemdaroglu.tripplanapp.domain.model.travelmodel.TravelModelItem
+import com.ersinberkealemdaroglu.tripplanapp.domain.model.users.Users
 import com.ersinberkealemdaroglu.tripplanapp.domain.usecase.BlogDataModelUseCase
+import com.ersinberkealemdaroglu.tripplanapp.domain.usecase.FmssUserUseCase
 import com.ersinberkealemdaroglu.tripplanapp.domain.usecase.GuideCategoryModelUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -23,7 +25,8 @@ import javax.inject.Inject
 class GuideFragmentViewModel @Inject constructor(
     private val blogDataModelUseCase: BlogDataModelUseCase,
     private val databaseRepository: DatabaseRepository,
-    private val guideCategoryModelUseCase: GuideCategoryModelUseCase
+    private val guideCategoryModelUseCase: GuideCategoryModelUseCase,
+    private val fmssUserUseCase: FmssUserUseCase
 ) :
     ViewModel() {
 
@@ -37,9 +40,13 @@ class GuideFragmentViewModel @Inject constructor(
     val blogData: LiveData<TravelModel>
         get() = _blogData
 
+    private var _usersFmss = MutableLiveData<Users>()
+    val fmssUsers : LiveData<Users> = _usersFmss
+
     init {
         getAllBlogData()
         getAllGuideCategoryData()
+        getAllUsersFmssIk()
     }
 
     fun getAllBlogData() {
@@ -47,7 +54,7 @@ class GuideFragmentViewModel @Inject constructor(
         CoroutineScope(Dispatchers.IO).launch {
             blogDataModelUseCase.getBlogData().enqueue(object : Callback<TravelModel> {
                 override fun onResponse(call: Call<TravelModel>, response: Response<TravelModel>) {
-                    _blogData.value = response.body()
+//                    _blogData.value = response.body()
                     _guideDataLoading.postValue(false)
                 }
 
@@ -70,11 +77,23 @@ class GuideFragmentViewModel @Inject constructor(
     fun getAllGuideCategoryData() {
         guideCategoryModelUseCase.getGuideCategory().enqueue(object : Callback<GuideCategory> {
             override fun onResponse(call: Call<GuideCategory>, response: Response<GuideCategory>) {
-                _guideCategory.value = response.body()
+        //        _guideCategory.value = response.body()
             }
 
             override fun onFailure(call: Call<GuideCategory>, t: Throwable) {
                 println("hata var")
+            }
+        })
+    }
+
+    fun getAllUsersFmssIk(){
+        fmssUserUseCase.getAllFmssIkUser().enqueue(object : Callback<Users>{
+            override fun onResponse(call: Call<Users>, response: Response<Users>) {
+                _usersFmss.value = response.body()
+            }
+
+            override fun onFailure(call: Call<Users>, t: Throwable) {
+                println("hata var!!!!" + t.message)
             }
         })
     }

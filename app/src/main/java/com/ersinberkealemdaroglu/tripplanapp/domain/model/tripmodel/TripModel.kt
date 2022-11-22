@@ -13,7 +13,13 @@ data class TripModel(
     @ColumnInfo(name = "country")
     val country: String,
     @ColumnInfo(name = "city")
-    val city: String
+    val city: String,
+    @ColumnInfo(name = "date")
+    val date: String,
+    @ColumnInfo(name = "hotel")
+    val hotel: String,
+    @ColumnInfo(name = "image")
+    val image: String
 ) : Parcelable{
     @IgnoredOnParcel
     @PrimaryKey(autoGenerate = true)

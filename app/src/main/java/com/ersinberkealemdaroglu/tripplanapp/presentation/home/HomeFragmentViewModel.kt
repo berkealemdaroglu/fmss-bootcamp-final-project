@@ -29,7 +29,7 @@ class HomeFragmentViewModel @Inject constructor(private val blogDataModelUseCase
         CoroutineScope(Dispatchers.IO).launch {
             blogDataModelUseCase.getBlogData().enqueue(object : Callback<TravelModel> {
                 override fun onResponse(call: Call<TravelModel>, response: Response<TravelModel>) {
-                    _blogData.value = response.body()
+//                    _blogData.value = response.body()
                 }
 
                 override fun onFailure(call: Call<TravelModel>, t: Throwable) {
