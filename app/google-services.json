@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "457938917478",
+    "project_id": "travelapp-53b1c",
+    "storage_bucket": "travelapp-53b1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457938917478:android:75e730fdfe60377cb235a7",
+        "android_client_info": {
+          "package_name": "com.ersinberkealemdaroglu.tripplanapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457938917478-7vkikroubhpmcdb3ev35rl3018af3k5b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ersinberkealemdaroglu.tripplanapp",
+            "certificate_hash": "478a75673f7be05d131b669495a621110bd9c47a"
+          }
+        },
+        {
+          "client_id": "457938917478-m4009s0hnqt7nhavv4u1nqb8cog7afc6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGmwC1svufHZOrw-PM27kodsnLvgI3_rU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457938917478-m4009s0hnqt7nhavv4u1nqb8cog7afc6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
